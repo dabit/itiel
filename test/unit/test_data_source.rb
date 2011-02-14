@@ -16,6 +16,6 @@ describe Itiel::DataSource do
   end
 
   it "creates the config file name from the name of the class" do
-    assert_equal 'legacy/legacy_data_source', Legacy::LegacyDataSource.config_section
+    assert_equal 'legacy/data_source', Legacy::DataSource.config_section
   end
 end

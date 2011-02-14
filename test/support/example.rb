@@ -1,5 +1,5 @@
 module Legacy
-  class LegacyDataSource < Itiel::DataSource
+  class DataSource < Itiel::DataSource
   end
 end
 
