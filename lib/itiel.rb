@@ -1,5 +1,5 @@
 require 'active_support/core_ext'
 
 module Itiel
-  autoload :Source, 'itiel/source'
+  autoload :DataSource, 'itiel/data_source'
 end

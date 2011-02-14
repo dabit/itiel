@@ -1,0 +1,8 @@
+legacy:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: legacy 
+  pool: 5
+  username: root
+  password:

@@ -1,5 +1,5 @@
 module Itiel
-  class Source
+  class DataSource
     def self.config_file_path
       @@config_file_path ||= 'config/sources'
     end
@@ -9,7 +9,7 @@ module Itiel
     end
 
     def self.config_section
-      @@config_file ||= self.name.tableize
+      @@config_file ||= self.name.underscore
     end
 
     def self.config_section=(value)
