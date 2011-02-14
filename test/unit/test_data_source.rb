@@ -1,9 +1,5 @@
 require File.expand_path("#{File.dirname(__FILE__)}/../test_helper")
 
-class Legacy < Itiel::DataSource
-
-end
-
 describe Itiel::DataSource do
   it "responds to :config_file_path" do
     assert_equal true, Itiel::DataSource.respond_to?(:config_file_path)
@@ -20,6 +16,6 @@ describe Itiel::DataSource do
   end
 
   it "creates the config file name from the name of the class" do
-    assert_equal 'legacy', Legacy.config_section
+    assert_equal 'legacy/legacy_data_source', Legacy::LegacyDataSource.config_section
   end
 end
