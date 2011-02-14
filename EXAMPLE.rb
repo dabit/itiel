@@ -1,8 +1,8 @@
-class Legacy < Itiel::DataSource
-end
-
 module Legacy
-  data_source :legacy
+  default_datasource :legacy_data_source
+
+  class LegacyDataSource < Itiel::DataSource
+  end
 
   class Order << Itiel::DataTable
     # order_id int
@@ -14,7 +14,10 @@ module Legacy
 end
 
 module NewHome
-  data_source :new_home
+  default_datasource :new_home_data_source
+
+  class NewHomeDataSource < Itiel::DataSource
+  end
 
   class Order << Itiel::DataTable
     # id
