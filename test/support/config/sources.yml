@@ -3,7 +3,7 @@ legacy:
   database: source.sqlite3
   pool: 5
 
-new_home:
+destination:
   adapter: sqlite3
   database: destination.sqlite3
   pool: 5

@@ -9,9 +9,9 @@ module Itiel
         Model.establish_connection connection.connection_string
       end
 
-      def input(input_stream)
+      def input=(input_stream)
         input_stream.each do |element|
-          Model.create(element)
+          Model.create!(element)
         end
       end
 
