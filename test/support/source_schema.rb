@@ -14,5 +14,6 @@ ActiveRecord::Base.establish_connection legacy_connection.connection_string
 ActiveRecord::Base.connection.instance_eval do
   create_table :orders, :force => true, :id => false do |t|
     t.integer :order_id
+    t.float   :name
   end
 end
