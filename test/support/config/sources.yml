@@ -1,8 +1,9 @@
 legacy:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: legacy 
+  adapter: sqlite3
+  database: source.sqlite3
   pool: 5
-  username: root
-  password:
+
+new_home:
+  adapter: sqlite3
+  database: destination.sqlite3
+  pool: 5

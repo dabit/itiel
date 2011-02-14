@@ -8,3 +8,5 @@ require 'mocha'
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'support/example'
+require 'support/destination_schema'
+require 'support/source_schema'

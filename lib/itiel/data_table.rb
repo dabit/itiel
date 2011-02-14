@@ -4,23 +4,21 @@ module Itiel
 			"config/sources.yml"
 		end
 
-		def self.data_sources_yaml
-			@@sources ||= YAML.load_file(config_file_path)
-			puts @@sources
-			raise "Sources Error" unless @@sources
-		end
-
+		#
+		# Always call from the body of a DataTable
+		# to establish the connection to the database
+		#
 		def self.data_source(source_name)
-			puts "Attempting to connect to #{source_name}"
-			@@sources ||= YAML.load_file('/Users/dab/gems/itiel/test/support/config/sources.yml')
+			@@sources ||= YAML.load_file(sources_file_path)
 			establish_connection @@sources[source_name.to_s]
-			#puts self.sources_file_path
-			#puts "AAAAAAAA"
-			#connection_settings = data_sources[source_name]
-			#raise "No connection settings found for #{source_name}" unless connection_settings
-			##establish_connection connection_settings
 		end
 
+		#
+		# Need to tell active_record the name of the table
+		# for the current model
+		#
+		# By default returns the pluralized name of the class
+		#
 		def self.table_name
 			self.name.demodulize.tableize
 		end
