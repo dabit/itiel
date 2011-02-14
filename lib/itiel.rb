@@ -1,5 +1,7 @@
 require 'active_support/core_ext'
+require 'active_record'
 
 module Itiel
-  autoload :DataSource, 'itiel/data_source'
+  autoload :DataTable      , 'itiel/data_table'
+  autoload :Transformation , 'itiel/transformation'
 end

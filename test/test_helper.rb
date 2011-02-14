@@ -3,8 +3,8 @@ require 'itiel'
 require 'minitest/spec'
 require 'minitest/unit'
 require 'minitest/autorun'
-
-require 'support/example'
+require 'mocha'
 
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'support/example'
