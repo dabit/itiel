@@ -1,3 +1,3 @@
 module Itiel
-  # Your code goes here...
+  autoload :Source, 'itiel/source'
 end
