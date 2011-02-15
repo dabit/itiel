@@ -1,14 +1,16 @@
 module Itiel
   module Transformations
     class FieldRename
-      include InputOutputDefinitions
+      include InputOutputBehavior
+
+      attr_accessor :mappings
 
       def initialize(*args)
-        @@mappings = args
+        self.mappings = args
       end
 
-      def transform!
-        old_keys = @@mappings.first.keys
+      def transform!(input_stream)
+        old_keys = self.mappings.first.keys
         @all_keys = input.first.keys
 
         transformed_output = []
@@ -16,15 +18,13 @@ module Itiel
           element = {}
           @all_keys.each do |k|
             if old_keys.include?(k)
-              element[@@mappings.first[k]] = object[k]
+              element[self.mappings.first[k]] = object[k]
             else
               element[k] = object[k]
             end
           end
           transformed_output << element
         end
-
-        self.output = transformed_output
 
         transformed_output
       end

@@ -1,19 +1,19 @@
 module Itiel
   module Transformations
     class FieldSelect
-      include InputOutputDefinitions
+      include InputOutputBehavior
+
+			attr_accessor :mappings
 
       def initialize(*args)
-        @@mappings = args
+        self.mappings = args
       end
 
-      def transform!
+      def transform!(input_stream)
         selected_output = []
         input.each do |object|
-          selected_output << object.select {|key, value| @@mappings.include? key }
+          selected_output << object.select {|key, value| self.mappings.include? key }
         end
-
-        self.output = selected_output
 
         selected_output
       end

@@ -8,8 +8,6 @@ describe Itiel::Transformations::FieldSelect do
         {"order_id" => 2, "name" => "second bucket", "price" => 3}
     ]
 
-    @transformer.transform!
-
     @result = @transformer.output
   end
 
