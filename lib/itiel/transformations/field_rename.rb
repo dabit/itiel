@@ -11,12 +11,12 @@ module Itiel
 
       def transform!(input_stream)
         old_keys = self.mappings.first.keys
-        @all_keys = input.first.keys
+        all_keys = input.first.keys
 
         transformed_output = []
 			  input.each do |object|
           element = {}
-          @all_keys.each do |k|
+          all_keys.each do |k|
             if old_keys.include?(k)
               element[self.mappings.first[k]] = object[k]
             else
