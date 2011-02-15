@@ -22,9 +22,9 @@ describe Itiel::Transformations::ConstantField do
       }
     ]
 
-    @transformation       = Itiel::Transformations::ConstantField("append" => "value")
+    @transformation       = Itiel::Transformations::ConstantField.new("append" => "value")
     @transformation.input = @input
-    @result               = @transformations.output
+    @result               = @transformation.output
   end
 
   it "appends a field with a constant value to the stream" do
