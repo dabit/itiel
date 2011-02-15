@@ -1,6 +1,7 @@
 # Itiel
 
-Hopefully, it will be an awesome Framework to do ETL with Ruby
+Hopefully, it will be an awesome Framework to do ETL with Ruby. It
+should only work with *Ruby 1.9* because, you know, it's the present.
 
 Right now, this works:
 
@@ -118,6 +119,11 @@ It would be extra nice if all the steps logged statistics
     rake itiel::graph
 
 Creates a graphical representation of your ETL flow
+
+### Ruby 1.8
+
+Not really, Ruby 1.9 is more enough. I don't have plans to make it
+work on 1.8
 
 # About the Author
 
