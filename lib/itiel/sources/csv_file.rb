@@ -10,14 +10,10 @@ module Itiel
         # Let's assume for now that header will always
         # be present
         contents = CSV.read(file_name, :headers => true)
-        @output = []
+        self.output = []
         contents.each do |r|
-          @output << r.to_hash
+          self.output << r.to_hash
         end
-      end
-
-      def output
-        @output
       end
     end
   end

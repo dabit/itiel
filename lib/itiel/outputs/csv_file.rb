@@ -22,7 +22,7 @@ module Itiel
           end
         end
 
-        @output = input_stream
+        self.output = input_stream
       end
     end
   end

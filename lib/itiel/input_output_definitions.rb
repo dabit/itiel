@@ -12,9 +12,9 @@ module Itiel
       @output
     end
 
-    private
+    protected
     def output=(value)
-      @output = value
+      @output ||= value
     end
   end
 end
