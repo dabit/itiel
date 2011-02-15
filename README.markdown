@@ -78,16 +78,16 @@ Don't know exactly where or how we need it, but Redis is awesome
 
 Some on my mind:
 
-Itiel::Scripting::ExecuteSQL
-Itiel::Scripting::ExecuteInSystem
-Itiel::Outputs::FTP
-Itiel::Sources::HTTP
-Itiel::Outputs::HTTPRequest
-Itiel::Joins::DatabaseTable
-Itiel::Transformations::CustomSort
-Itiel::Transformations::MapValues
-Itiel::Transformations::IfNil
-Itiel::Lookups::DatabaseTable
+    Itiel::Scripting::ExecuteSQL
+    Itiel::Scripting::ExecuteInSystem
+    Itiel::Outputs::FTP
+    Itiel::Sources::HTTP
+    Itiel::Outputs::HTTPRequest
+    Itiel::Joins::DatabaseTable
+    Itiel::Transformations::CustomSort
+    Itiel::Transformations::MapValues
+    Itiel::Transformations::IfNil
+    Itiel::Lookups::DatabaseTable
 
 Just ideas, I have nothing on how to implement most of them
 
