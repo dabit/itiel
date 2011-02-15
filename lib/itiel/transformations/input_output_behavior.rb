@@ -7,7 +7,7 @@ module Itiel
     # Whenever a transformation receives input, it stores the result of
     # transform! on the output
     #
-    # All the Transformation classes should at least define transform!
+    # All the classes in tiel::Transformation should implement ransform!
     #
     module InputOutputBehavior
       module InstanceMethods
@@ -21,7 +21,7 @@ module Itiel
         end
 
         #
-        # This method has to be implemented an the Transformation class
+        # This method has to be implemented in the class
         #
         def transform!(input_stream)
         end

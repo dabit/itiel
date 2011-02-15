@@ -1,7 +1,7 @@
 module Itiel
   module Outputs
     class DatabaseTable
-      include Itiel::InputOutputDefinitions
+      include InputOutputBehavior
       include Itiel::Nameable
 
       def initialize(connection)
@@ -9,13 +9,11 @@ module Itiel
         Model.establish_connection connection.connection_string
       end
 
-      def input=(input_stream)
-        input_stream.each do |element|
+			def persist!(input_stream)
+				input_stream.each do |element|
           Model.create!(element)
         end
-
-        self.output = input_stream
-      end
+			end
 
       class Model < ActiveRecord::Base; end
     end

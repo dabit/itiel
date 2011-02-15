@@ -3,13 +3,13 @@ require 'csv'
 module Itiel
   module Outputs
     class CSVFile
-      include Itiel::InputOutputDefinitions
+      include InputOutputBehavior
 
       def initialize(file_name)
         @file_name = file_name
       end
 
-      def input=(input_stream)
+      def persist!(input_stream)
         headers = input_stream.collect(&:keys).flatten.uniq
         CSV.open(@file_name, "w") do |csv|
           csv << headers
@@ -21,8 +21,6 @@ module Itiel
             csv << csv_row
           end
         end
-
-        self.output = input_stream
       end
     end
   end
