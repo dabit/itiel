@@ -104,6 +104,15 @@ Can't have ETL without these
 
 So you can TDD your ETL
 
+### Logging
+
+It would be extra nice if all the steps logged statistics
+
+* Processing X rows of Y
+* Time spent
+* Transformation Name
+* Configurable log level
+
 ### Viz
 
     rake itiel::graph
