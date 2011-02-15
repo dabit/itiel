@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "itiel"
   s.version     = Itiel::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["David Padilla"]
+  s.email       = ["david@crowdint.com"]
+  s.homepage    = "http://github.com/crowdint/itiel"
+  s.summary     = %q{DSL for ETL in Ruby}
+  s.description = %q{DSL for ETL in Ruby}
 
   s.rubyforge_project = "itiel"
 
@@ -23,4 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency('activerecord', '~>3.0.0')
 
   s.add_development_dependency('mocha')
+  s.add_development_dependency('turn')
+  s.add_development_dependency('sqlite3')
 end

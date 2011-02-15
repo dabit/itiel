@@ -3,7 +3,9 @@ require 'itiel'
 require 'minitest/spec'
 require 'minitest/unit'
 require 'minitest/autorun'
-require 'mocha'
+
+require 'bundler/setup'
+require 'turn'
 
 ENV['RAILS_ENV'] ||= 'test'
 
