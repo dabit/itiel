@@ -122,7 +122,7 @@ Creates a graphical representation of your ETL flow
 
 ### Ruby 1.8
 
-Not really, Ruby 1.9 is more enough. I don't have plans to make it
+Not really, Ruby 1.9 is enough. I don't have plans to make it
 work on 1.8
 
 # About the Author
