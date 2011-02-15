@@ -32,4 +32,8 @@ describe Itiel::Outputs::DatabaseTable do
       assert_equal row["name"], result.name
     end
   end
+
+  it "wires input to output" do
+    assert_equal @input, @output.output
+  end
 end

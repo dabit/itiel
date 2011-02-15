@@ -3,10 +3,8 @@ require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
 describe Itiel::Outputs::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
-  end
 
-  it "generates a CSV file with the input data" do
-    input = [
+    @input = [
       {
         "id" => 1,
         "name" => "Subject Name"
@@ -17,17 +15,23 @@ describe Itiel::Outputs::CSVFile do
       }
     ]
 
-    expected_result = [
+    @expected_result = [
       ["id", "name"],
       ["1", "Subject Name"],
       ["2", "Subject Name"]
     ]
     @csv_output = Itiel::Outputs::CSVFile.new(@filename)
-    @csv_output.input = input
+    @csv_output.input = @input
 
     File.exist?(@filename)
-    result = CSV.read(@filename, :headers => true)
+    @result = CSV.read(@filename, :headers => true)
+  end
 
-    assert_equal expected_result, result.to_a
+  it "generates a CSV file with the input data" do
+    assert_equal @expected_result, @result.to_a
+  end
+
+  it "wires input to output" do
+    assert_equal @input, @csv_output.output
   end
 end

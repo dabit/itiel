@@ -13,6 +13,8 @@ module Itiel
         input_stream.each do |element|
           Model.create!(element)
         end
+
+        self.output = input_stream
       end
 
       class Model < ActiveRecord::Base; end
