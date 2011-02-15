@@ -14,14 +14,10 @@ module Itiel
         attr_accessor :input
         #
         # Returns cached output by default, call it with true to run the
-        # transformation before sending the output
+        # transformation before returning the output
         #
-        def output(cached = true)
-          if cached
-            @output ||= transform!(self.input)
-          else
-            @output = transform!(self.input)
-          end
+        def output(retransform = false)
+          @output = (retransform ? transform!(self.input) : @output ||= transform!(self.input))
         end
 
         #
