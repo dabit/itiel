@@ -13,7 +13,7 @@ module Itiel
         attr_reader :output
 
         def input=(input_stream)
-          persist!(input_stream)    
+          persist!(input_stream)
           self.output = input_stream
         end
 
