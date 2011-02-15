@@ -26,7 +26,7 @@ describe Itiel::Outputs::DatabaseTable do
     assert_equal 2, @results.size
   end
 
-  it "" do
+  it "creates a record for each row" do
     @input.each do |row|
       result = Destination::ShippedOrders::Model.where(:name => row["name"]).first
       assert_equal row["name"], result.name

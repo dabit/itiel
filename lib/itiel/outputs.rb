@@ -1,5 +1,6 @@
 module Itiel
   module Outputs
-    autoload :DatabaseTable, 'itiel/outputs/database_table'
+    autoload :CSVFile       , 'itiel/outputs/csv_file'
+    autoload :DatabaseTable , 'itiel/outputs/database_table'
   end
 end

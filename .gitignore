@@ -5,3 +5,4 @@ pkg/*
 **.swp
 .rvmrc
 **.sqlite3
+tmp
