@@ -1,5 +1,5 @@
 module Itiel
-  module Outputs
+  module Loaders
     #
     # This module defines the input and output behavior for output steps
     #

@@ -1,6 +1,6 @@
 require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
 
-describe Itiel::Outputs::DatabaseTable do
+describe Itiel::Loaders::DatabaseTable do
   before(:each) do
     @output = Destination::ShippedOrders.new(destination_connection)
     @input = [

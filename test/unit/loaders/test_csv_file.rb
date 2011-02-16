@@ -1,6 +1,6 @@
 require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
 
-describe Itiel::Outputs::CSVFile do
+describe Itiel::Loaders::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
 
@@ -21,7 +21,7 @@ describe Itiel::Outputs::CSVFile do
         ["2"  , "Subject Name"]
     ]
 
-    @csv_output = Itiel::Outputs::CSVFile.new(@filename)
+    @csv_output = Itiel::Loaders::CSVFile.new(@filename)
     @csv_output.input = @input
 
     File.exist?(@filename)

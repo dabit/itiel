@@ -1,7 +1,7 @@
 module Itiel
   module Extractors
     #
-    # Defines the behavior of input and outputs for the
+    # Defines the behavior of input and loaders for the
     # Extractors classes
     #
     # Classes must implement a method call load!

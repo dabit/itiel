@@ -1,7 +1,7 @@
 require 'csv'
 
 module Itiel
-  module Outputs
+  module Loaders
     class CSVFile
       include InputOutputBehavior
 

@@ -3,5 +3,5 @@ module Legacy
 end
 
 module Destination
-  class ShippedOrders < Itiel::Outputs::DatabaseTable; end
+  class ShippedOrders < Itiel::Loaders::DatabaseTable; end
 end

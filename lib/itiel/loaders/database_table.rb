@@ -1,5 +1,5 @@
 module Itiel
-  module Outputs
+  module Loaders
     class DatabaseTable
       include InputOutputBehavior
       include Itiel::Nameable
@@ -9,11 +9,11 @@ module Itiel
         Model.establish_connection connection.connection_string
       end
 
-			def persist!(input_stream)
-				input_stream.each do |element|
+      def persist!(input_stream)
+        input_stream.each do |element|
           Model.create!(element)
         end
-			end
+      end
 
       class Model < ActiveRecord::Base; end
     end

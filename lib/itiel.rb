@@ -5,7 +5,7 @@ require 'itiel/job'
 module Itiel
   autoload :InputOutputDefinitions , 'itiel/input_output_definitions'
   autoload :Nameable               , 'itiel/nameable'
-  autoload :Outputs                , 'itiel/outputs'
+  autoload :Loaders                , 'itiel/loaders'
   autoload :Extractors             , 'itiel/extractors'
   autoload :Transformations        , 'itiel/transformations'
 end
