@@ -3,23 +3,23 @@ require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
 describe Itiel::Transformations::ConstantField do
   before :each do
     @input = [
-      {
-        "id" => "1"
-      },
-      {
-        "id" => "2"
-      }
+				{
+					"id" => "1"
+				},
+				{
+					"id" => "2"
+				}
     ]
 
     @expected_output = [
-      {
-        "id"     => "1",
-        "append" => "value"
-      },
-      {
-        "id"     => "2",
-        "append" => "value"
-      }
+				{
+					"id"     => "1",
+					"append" => "value"
+				},
+				{
+					"id"     => "2",
+					"append" => "value"
+				}
     ]
 
     @transformation       = Itiel::Transformations::ConstantField.new("append" => "value")

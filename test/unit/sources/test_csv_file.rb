@@ -8,14 +8,14 @@ describe Itiel::Sources::CSVFile do
 
   it "returns a hash with the contents of the csv file" do
     expected_result = [
-      {
-        "id"   => "1",
-        "name" => "Ono"
-      },
-      {
-        "id"   => "2",
-        "name" => "Okinawa"
-      }
+				{
+					"id"   => "1",
+					"name" => "Ono"
+				},
+				{
+					"id"   => "2",
+					"name" => "Okinawa"
+				}
     ]
     result = @brand_source.output
 

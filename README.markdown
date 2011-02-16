@@ -83,7 +83,7 @@ Some on my mind:
     Itiel::Lookups::DatabaseTable
     Itiel::Outputs::FTP
     Itiel::Outputs::HTTPRequest
-    Itiel::Outputs::MongoDBDocuement
+    Itiel::Outputs::MongoDBDocument
     Itiel::Scripting::ExecuteSQL
     Itiel::Scripting::ExecuteInSystem
     Itiel::Sources::HTTP

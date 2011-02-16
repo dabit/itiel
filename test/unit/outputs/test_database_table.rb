@@ -4,14 +4,14 @@ describe Itiel::Outputs::DatabaseTable do
   before(:each) do
     @output = Destination::ShippedOrders.new(destination_connection)
     @input = [
-      {
-        "id"   => "1",
-        "name" => "Some Name"
-      },
-      {
-        "id"   => "2",
-        "name" => "Some Other Name"
-      },
+				{
+					"id"   => "1",
+					"name" => "Some Name"
+				},
+				{
+					"id"   => "2",
+					"name" => "Some Other Name"
+				},
     ]
 
 		@output.input = @input

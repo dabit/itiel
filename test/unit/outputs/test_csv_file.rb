@@ -5,21 +5,22 @@ describe Itiel::Outputs::CSVFile do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
 
     @input = [
-      {
-        "id" => 1,
-        "name" => "Subject Name"
-      },
-      {
-        "id" => 2,
-        "name" => "Subject Name"
-      }
+        {
+          "id"   => 1,
+          "name" => "Subject Name"
+        },
+        {
+          "id"   => 2,
+          "name" => "Subject Name"
+        }
     ]
 
     @expected_result = [
-      ["id", "name"],
-      ["1", "Subject Name"],
-      ["2", "Subject Name"]
+        ["id" , "name"        ] ,
+        ["1"  , "Subject Name"] ,
+        ["2"  , "Subject Name"]
     ]
+
     @csv_output = Itiel::Outputs::CSVFile.new(@filename)
     @csv_output.input = @input
 

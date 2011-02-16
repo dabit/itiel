@@ -3,15 +3,15 @@ require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
 describe Itiel::Transformations::SingleColumnSort do
   before :each do
     @sorted_z_to_a = [
-      { "id" => 1, "name" => "Zeta"  },
-      { "id" => 2, "name" => "Omega" },
-      { "id" => 3, "name" => "Alpha" }
+				{ "id" => 1, "name" => "Zeta"  },
+				{ "id" => 2, "name" => "Omega" },
+				{ "id" => 3, "name" => "Alpha" }
     ]
 
     @sorted_a_to_z = [
-      { "id" => 3, "name" => "Alpha" },
-      { "id" => 2, "name" => "Omega" },
-      { "id" => 1, "name" => "Zeta"  }
+				{ "id" => 3, "name" => "Alpha" },
+				{ "id" => 2, "name" => "Omega" },
+				{ "id" => 1, "name" => "Zeta"  }
     ]
   end
 
