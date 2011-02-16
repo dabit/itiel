@@ -3,8 +3,8 @@ require 'active_record'
 module Itiel
   module Sources
     class DatabaseTable
-      include Itiel::InputOutputDefinitions
       include Itiel::Nameable
+      include InputOutputBehavior
 
       attr_accessor :where
 
@@ -14,12 +14,8 @@ module Itiel
         Model.establish_connection connection.connection_string
       end
 
-      def output
+      def load!
         Model.all.collect {|r| r.attributes}
-      end
-
-      def field_names
-        Model.columns_hash.keys
       end
 
       class Model < ActiveRecord::Base

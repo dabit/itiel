@@ -3,18 +3,25 @@ require 'csv'
 module Itiel
   module Sources
     class CSVFile
-      include Itiel::InputOutputDefinitions
+      include InputOutputBehavior
       include Itiel::Nameable
 
+			attr_accessor :file_name
+
       def initialize(file_name)
+				self.file_name = file_name
+      end
+
+			def load!
         # Let's assume for now that header will always
         # be present
-        contents = CSV.read(file_name, :headers => true)
-        self.output = []
+        contents = CSV.read(self.file_name, :headers => true)
+        output_stream = []
         contents.each do |r|
-          self.output << r.to_hash
+          output_stream << r.to_hash
         end
-      end
+				output_stream
+			end
     end
   end
 end
