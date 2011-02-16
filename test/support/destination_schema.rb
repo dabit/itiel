@@ -2,7 +2,7 @@ require 'active_record'
 
 def destination_connection
   unless @destination_connection
-    @destination_connection                 = Itiel::Sources::DatabaseConnection.new
+    @destination_connection                 = Itiel::Extractors::DatabaseConnection.new
     @destination_connection.sources_file    = File.dirname(__FILE__) + '/config/sources.yml'
     @destination_connection.connection_name = "destination"
   end

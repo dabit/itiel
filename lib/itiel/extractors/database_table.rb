@@ -1,7 +1,7 @@
 require 'active_record'
 
 module Itiel
-  module Sources
+  module Extractors
     class DatabaseTable
       include Itiel::Nameable
       include InputOutputBehavior

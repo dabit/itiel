@@ -1,5 +1,5 @@
 module Itiel
-  module Sources
+  module Extractors
     class DatabaseConnection
       attr_accessor :sources_file
       attr_accessor :connection_name
@@ -10,7 +10,7 @@ module Itiel
 
       def connection_string
         yaml = YAML.load_file(sources_file)
-        parameters = yaml[connection_name]
+        yaml[connection_name]
       end
     end
   end

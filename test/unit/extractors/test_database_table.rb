@@ -1,6 +1,6 @@
 require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
 
-describe Itiel::Sources::DatabaseTable do
+describe Itiel::Extractors::DatabaseTable do
   before :each do
     @legacy_orders_source           = Legacy::Orders.new(legacy_connection)
     @legacy_orders_source.step_name = "Load orders from Legacy"

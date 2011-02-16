@@ -2,7 +2,7 @@ require 'active_record'
 
 def legacy_connection
   unless @connection
-    @connection                 = Itiel::Sources::DatabaseConnection.new
+    @connection                 = Itiel::Extractors::DatabaseConnection.new
     @connection.sources_file    = File.dirname(__FILE__) + '/config/sources.yml'
     @connection.connection_name = "legacy"
   end

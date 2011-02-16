@@ -1,8 +1,8 @@
 module Itiel
-  module Sources
+  module Extractors
     #
     # Defines the behavior of input and outputs for the
-    # Sources classes
+    # Extractors classes
     #
     # Classes must implement a method call load!
     #
