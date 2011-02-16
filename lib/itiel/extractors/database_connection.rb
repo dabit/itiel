@@ -8,9 +8,14 @@ module Itiel
         self.sources_file = 'config/sources.yml'
       end
 
-      def connection_string
-        yaml = YAML.load_file(sources_file)
-        yaml[connection_name]
+      def connection_string(refresh = false)
+        @connection = ( refresh ? load_from_file : @connection ||= load_from_file)
+      end
+
+      private
+      def load_from_file
+        yaml = YAML.load_file(self.sources_file)
+        yaml[self.connection_name]
       end
     end
   end
