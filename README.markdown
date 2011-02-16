@@ -18,8 +18,8 @@ Right now, this works:
     # 4,pete,active
 
 
-    @source             = Itiel::Sources::CSVFile.new('source.csv')
-    @destination        = Itiel::Outputs::CSVFile.new('destination.csv')
+    @source             = Itiel::Extractors::CSVFile.new('source.csv')
+    @destination        = Itiel::Loaders::CSVFile.new('destination.csv')
 
     @sorter             = Itiel::Transformations::SingleColumnSort.new("name")
     @add_constant       = Itiel::Transformations::ConstantField.new("constant" = > "value")
@@ -75,19 +75,23 @@ I have in mind something like this:
 
 Don't know exactly where or how we need it, but Redis is awesome
 
+### Mongo
+
+Picture yourself migrating form SQL to Mongo
+
 ### Joins, Scripts and lots more transformations
 
 Some on my mind:
 
     Itiel::Joins::DatabaseTable
     Itiel::Lookups::DatabaseTable
-    Itiel::Outputs::FTP
-    Itiel::Outputs::HTTPRequest
-    Itiel::Outputs::MongoDBDocument
+    Itiel::Loaders::FTP
+    Itiel::Loaders::HTTPRequest
+    Itiel::Loaders::MongoDBDocument
     Itiel::Scripting::ExecuteSQL
     Itiel::Scripting::ExecuteInSystem
-    Itiel::Sources::HTTP
-    Itiel::Sources::MongoDBDocument
+    Itiel::Extractors::HTTP
+    Itiel::Extractors::MongoDBDocument
     Itiel::Transformations::CustomSort
     Itiel::Transformations::MapValues
     Itiel::Transformations::IfNil
@@ -129,8 +133,8 @@ work on 1.8
 
 # About the Author
 
-[Crowd Interactive](http://www.crowdint.com) is a Ruby and Rails consultancy firm powered by a
-team of enthusiast engineers who love programming.
+[Crowd Interactive](http://www.crowdint.com) is a Ruby and Rails consultancy firm
+powered by a team of enthusiast engineers who love programming.
 We turn your ideas into web applications, and we like challenging projects. We also have
 a lot of experience in retail, so it doesn't matter if your idea is about
 something you'd like to sell, we can surely help you.
