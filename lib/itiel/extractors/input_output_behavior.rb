@@ -10,13 +10,22 @@ module Itiel
     #
     module InputOutputBehavior
       module InstanceMethods
-        attr_accessor :input
+        def input=(input_stream)
+          Itiel::Logger.log_received(self, input_stream.size)
+          @input = input_stream
+        end
+
+        def input
+          @input
+        end
 
         #
         # Caches the output, call with true to reload
         #
         def output(refresh = false)
           @output = (refresh ? load! : @output ||= load! )
+          Itiel::Logger.log_processed(self, @output.size)
+          @output
         end
 
         #

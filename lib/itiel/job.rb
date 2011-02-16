@@ -36,7 +36,9 @@ module Itiel
     #
     #
     def self.run(&block)
+      Itiel::Logger.log_start_job(self)
       yield self.new
+      Itiel::Logger.log_end_job(self)
     end
 
     #

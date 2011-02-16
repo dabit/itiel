@@ -13,15 +13,16 @@ module Itiel
         attr_reader :output
 
         def input=(input_stream)
+          Itiel::Logger.log_received(self, input_stream.size)
           persist!(input_stream)
           self.output = input_stream
+          Itiel::Logger.log_processed(self, input_stream.size)
         end
 
         #
         # This method has to be implemented in the class
         #
-        def persist!(input_stream)
-        end
+        def persist!(input_stream) ; end
 
         private
         attr_writer :output
