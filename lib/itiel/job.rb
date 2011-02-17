@@ -1,5 +1,6 @@
 module Itiel
   class Job
+    attr_accessor :block
     #
     # Pass a block to this method to process the ETL steps in order
     #
@@ -33,11 +34,47 @@ module Itiel
     #       job.step @source => [ @destination, @second_destination ]
     #     end
     #
-    #
-    #
     def self.run(&block)
       Itiel::Logger.log_start_job(self)
       yield self.new
+      Itiel::Logger.log_end_job(self)
+    end
+
+    #
+    # Use it to define the job steps and then run the job at a later date.
+    #
+    # It returns an instance of a job, you can call run! on that instance later
+    # to actually run the steps defined on the block of the job
+    #
+    # Uses the same syntax as run:
+    #
+    #     job = Itiel::Job.define do |job|
+    #       job.step @source => @destination
+    #     end
+    #
+    #     job.run!
+    #
+    # Or
+    #
+    #     job = Itiel::Job.define do |job|
+    #       job.step @source
+    #       job.step @destination
+    #
+    #       ...
+    #     end
+    #
+    #     job.run!
+    #
+    def self.define(&block)
+      self.new(&block)
+    end
+
+    #
+    # Use it to run the steps on a previously defined Job
+    #
+    def run!
+      Itiel::Logger.log_start_job(self)
+      self.block.call(self)
       Itiel::Logger.log_end_job(self)
     end
 
@@ -53,6 +90,11 @@ module Itiel
     end
 
     private
+    def initialize(&block)
+      self.block = block
+      super
+    end
+
     def hash_based_step(*args)
       source, destination = args[0].first.to_a
       if destination.is_a?(Array)

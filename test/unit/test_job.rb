@@ -7,6 +7,41 @@ describe Itiel::Job do
     end
   end
 
+  describe "Itiel::Job#define" do
+    it "returns an instance of Itiel::Job" do
+      assert_instance_of Itiel::Job, Itiel::Job.define
+    end
+
+    it "yields a new instance of Itiel::Job" do
+      Itiel::Job.define {|object| assert_instance_of(Itiel::Job, object)}
+    end
+
+    it "sets given block as the block attribute of the instance it returns" do
+      block = Proc.new {}
+      job   = Itiel::Job.define(&block)
+      assert_equal block, job.block
+    end
+  end
+
+  describe "#run!" do
+    it "calls the block on self.block" do
+      block = Proc.new {}
+      block.expects(:call)
+      job = Itiel::Job.define(&block)
+      job.run!
+    end
+
+    it "responds to step inside the block" do
+      @object = mock()
+      instanced_job = Itiel::Job.define do |job|
+        job.step @object
+      end
+
+      instanced_job.expects(:step).with(@object)
+      instanced_job.run!
+    end
+  end
+
   describe "#step" do
     before :each do
       @job = Itiel::Job.new
