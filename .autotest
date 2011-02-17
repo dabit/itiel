@@ -1,0 +1,9 @@
+require 'autotest/growl'
+require 'autotest/fsevent'
+
+Autotest.add_hook :initialize do |at|
+  %w{tmp .autotest gemspec README}.each do |exception|
+    at.add_exception(exception)
+  end
+end
+
