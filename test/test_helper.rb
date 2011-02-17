@@ -19,5 +19,6 @@ log.level = Logger::INFO
 Itiel::Logger.logger = log
 
 
+raise "test_helper.rb required more than once" if defined?(TMP_DIR)
 TMP_DIR = File.expand_path("#{File.dirname(__FILE__)}/../tmp")
 Dir.mkdir(TMP_DIR) unless File.exist?(TMP_DIR)

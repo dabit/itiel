@@ -1,5 +1,3 @@
-require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
-
 describe Itiel::Transformations::SingleColumnSort do
   before :each do
     @sorted_z_to_a = [

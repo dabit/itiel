@@ -1,5 +1,3 @@
-require File.expand_path("#{File.dirname(__FILE__)}/../../test_helper.rb")
-
 describe Itiel::Loaders::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")

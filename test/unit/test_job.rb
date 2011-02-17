@@ -1,5 +1,3 @@
-require File.expand_path("#{File.dirname(__FILE__)}/../test_helper.rb")
-
 describe Itiel::Job do
   describe "Itiel::Job#run" do
     it "yields a new instance of Itiel::Job" do
