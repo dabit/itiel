@@ -5,6 +5,9 @@ should only work with *Ruby 1.9*.
 
 Right now, this works:
 
+    require 'itiel'
+
+    #
     # source.csv
     #
     # id,name,state
