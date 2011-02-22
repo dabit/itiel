@@ -4,6 +4,7 @@ module Itiel
   module Loaders
     class CSVFile
       include InputOutputBehavior
+      include Itiel::Nameable
 
       def initialize(file_name)
         @file_name = file_name

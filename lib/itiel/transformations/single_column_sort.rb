@@ -2,6 +2,7 @@ module Itiel
   module Transformations
     class SingleColumnSort
       include InputOutputBehavior
+      include Itiel::Nameable
 
       SORT_ORDER = [
         :asc,

@@ -15,6 +15,7 @@ module Itiel
     #
     class CalculatedField
       include InputOutputBehavior
+      include Itiel::Nameable
 
       attr_accessor :arguments
 

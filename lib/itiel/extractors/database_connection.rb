@@ -1,6 +1,8 @@
 module Itiel
   module Extractors
     class DatabaseConnection
+      include Itiel::Nameable
+
       attr_accessor :sources_file
       attr_accessor :connection_name
 

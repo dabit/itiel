@@ -2,6 +2,7 @@ module Itiel
   module Transformations
     class FieldSelect
       include InputOutputBehavior
+      include Itiel::Nameable
 
 			attr_accessor :mappings
 
