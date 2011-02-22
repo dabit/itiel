@@ -1,14 +1,10 @@
 # Itiel
 
 Hopefully, it will be an awesome Framework to do ETL with Ruby. It
-should only work with *Ruby 1.9* because, you know, it's the present.
+should only work with *Ruby 1.9*.
 
 Right now, this works:
 
-    require 'rubygems'
-    require 'itiel'
-
-    #
     # source.csv
     #
     # id,name,state
@@ -17,16 +13,34 @@ Right now, this works:
     # 3,rails,inactive
     # 4,pete,active
 
+    @source       = Itiel::Extractors::CSVFile.new('source.csv')
+    @destination  = Itiel::Loaders::CSVFile.new('destination.csv')
+    @destination2 = Itiel::Loaders::CSVFile.new('destination2.csv')
 
-    @source             = Itiel::Extractors::CSVFile.new('source.csv')
-    @destination        = Itiel::Loaders::CSVFile.new('destination.csv')
+    @sorter       = Itiel::Transformations::SingleColumnSort.new("name")
+    @add_constant = Itiel::Transformations::ConstantField.new("constant" => "value")
 
-    @sorter             = Itiel::Transformations::SingleColumnSort.new("name")
-    @add_constant       = Itiel::Transformations::ConstantField.new("constant" = > "value")
+    #
+    # The define way
+    #
 
-    @sorter.input       = @source.output
-    @add_constant.input = @sorter.output
-    @destination.input  = @add_constant.output
+    atreyu_job = Itiel::Job.define do |job|
+      job.step @source       => @add_constant
+      job.step @add_constant => @sorter
+      job.step @sorter       => [ @destination, @destination2 ]
+    end
+
+    atreyu_job.run!
+
+    #
+    # The run way
+    # 
+
+    Itiel::Job.run do |job|
+      job.step @source       => @add_constant
+      job.step @add_constant => @sorter
+      job.step @sorter       => [ @destination, @destination2 ]
+    end
 
     #
     # destination.csv
@@ -37,12 +51,16 @@ Right now, this works:
     # 3,rails,inactive,value
     # 2,ruby,active,value
 
-I want to have something like this:
+    #
+    # You can also use it with a variant for both cases
+    # where the steps are specified in order
+    #
 
-    Itiel::Job do
-      step @source       => @sorter
-      step @sorter       => @add_constant
-      step @add_constant => @destination
+    Itiel::Job.run do |job|
+      job.step @source
+      job.step @add_constant
+      job.step @sorter
+      job.step @destination
     end
 
 ## TODO
@@ -63,9 +81,16 @@ I have in mind something like this:
     |-Gemfile
     |-Gemfile.lock
 
+### Controllers
+
+Take care of defining and running the jobs. It's where you put all the
+code like the example above.
+
 ### A command line bin to generate the basic structure
 
-    itiel new project_name
+    itiel new project_name.
+
+Use thor?
 
 ### Rake
 
