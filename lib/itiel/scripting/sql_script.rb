@@ -20,6 +20,7 @@ module Itiel
 
         Executor.establish_connection connection.connection_string
         Executor.connection.execute(self.sql)
+        Executor.clear_all_connections!
       end
 
       private
