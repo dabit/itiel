@@ -7,6 +7,10 @@ module Itiel
   autoload :InputOutputDefinitions , 'itiel/input_output_definitions'
   autoload :Nameable               , 'itiel/nameable'
 
+  module DB
+    autoload :Connection           , 'itiel/DB/connection'
+  end
+
   module Extractors
     autoload :CSVFile              , 'itiel/extractors/csv_file'
     autoload :DatabaseConnection   , 'itiel/extractors/database_connection'

@@ -24,9 +24,14 @@ module Itiel
 
       private
       def sanity_check
-        raise "No connection was specified to run the script" unless connection
-        raise "Connection is not Itiel::Extractors::DatabaseConnection" unless connection.is_a?(Itiel::Extractors::DatabaseConnection)
-        raise "No SQL to execute given" unless self.sql
+        raise "No connection was specified to run the script" \
+            unless connection
+
+        raise "Connection is not Itiel::DB::DatabaseConnection" \
+            unless connection.is_a?(Itiel::DB::Connection)
+
+        raise "No SQL to execute given" \
+            unless self.sql
       end
 
       class Executor < ActiveRecord::Base ; end

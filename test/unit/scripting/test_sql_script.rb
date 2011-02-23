@@ -12,7 +12,7 @@ describe Itiel::Scripting::SQLScript do
     end
   end
 
-  describe "connection is not Itiel::DatabaseConnection" do
+  describe "connection is not Itiel::DB::Connection" do
     before :each do
       @sql_script.connection = Object.new
     end
