@@ -20,6 +20,11 @@ module Itiel
     autoload :InputOutputBehavior  , 'itiel/loaders/input_output_behavior'
   end
 
+  module Scripting
+    autoload :InputOutputBehavior  , 'itiel/scripting/input_output_behavior.rb'
+    autoload :SQLScript            , 'itiel/scripting/sql_script.rb'
+  end
+
   module Transformations
     autoload :CalculatedField      , 'itiel/transformations/calculated_field'
     autoload :ConstantField        , 'itiel/transformations/constant_field'

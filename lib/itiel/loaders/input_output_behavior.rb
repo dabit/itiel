@@ -1,7 +1,7 @@
 module Itiel
   module Loaders
     #
-    # This module defines the input and output behavior for output steps
+    # This module defines the input and output behavior for Loader steps
     #
     # Whenever an Output receives input, it calls persist! and then
     # wires the input and the output
