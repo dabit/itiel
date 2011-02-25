@@ -27,13 +27,13 @@ Right now, this works:
     # The define way
     #
 
-    atreyu_job = Itiel::Job.define do |job|
+    job_object = Itiel::Job.define do |job|
       job.step @source       => @add_constant
       job.step @add_constant => @sorter
       job.step @sorter       => [ @destination, @destination2 ]
     end
 
-    atreyu_job.run!
+    job_object.run!
 
     #
     # The run way
@@ -116,7 +116,6 @@ Some on my mind:
     Itiel::Loaders::FTP
     Itiel::Loaders::HTTPRequest
     Itiel::Loaders::MongoDBDocument
-    Itiel::Scripting::ExecuteSQL
     Itiel::Scripting::ExecuteInSystem
     Itiel::Extractors::HTTP
     Itiel::Extractors::MongoDBDocument

@@ -25,8 +25,8 @@ module Itiel
   end
 
   module Scripting
-    autoload :InputOutputBehavior  , 'itiel/scripting/input_output_behavior.rb'
-    autoload :SQLScript            , 'itiel/scripting/sql_script.rb'
+    autoload :InputOutputBehavior  , 'itiel/scripting/input_output_behavior'
+    autoload :SQLScript            , 'itiel/scripting/sql_script'
   end
 
   module Transformations
@@ -34,7 +34,8 @@ module Itiel
     autoload :ConstantField        , 'itiel/transformations/constant_field'
     autoload :FieldRename          , 'itiel/transformations/field_rename'
     autoload :FieldSelect          , 'itiel/transformations/field_select'
-    autoload :InputOutputBehavior  , 'itiel/transformations/input_output_behavior.rb'
-    autoload :SingleColumnSort     , 'itiel/transformations/single_column_sort.rb'
+    autoload :InputOutputBehavior  , 'itiel/transformations/input_output_behavior'
+		autoload :MapValues            , 'itiel/transformations/map_values'
+    autoload :SingleColumnSort     , 'itiel/transformations/single_column_sort'
   end
 end
