@@ -1,6 +1,7 @@
 describe Itiel::Loaders::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
+		File.unlink(@filename) if File.exist?(@filename)
 
     @input = [
         {
@@ -14,23 +15,38 @@ describe Itiel::Loaders::CSVFile do
     ]
 
     @expected_result = [
-        ["id" , "name"        ] ,
-        ["1"  , "Subject Name"] ,
-        ["2"  , "Subject Name"]
+        [ "id" , "name"         ] ,
+        [ "1"  , "Subject Name" ] ,
+        [ "2"  , "Subject Name" ]
     ]
 
-    @csv_output = Itiel::Loaders::CSVFile.new(@filename)
-    @csv_output.input = @input
-
-    File.exist?(@filename)
-    @result = CSV.read(@filename, :headers => true)
+		@csv_output = Itiel::Loaders::CSVFile.new(@filename)
   end
 
-  it "generates a CSV file with the input data" do
-    assert_equal @expected_result, @result.to_a
-  end
+	describe "the file does not exist" do
+		before :each do
+			@csv_output.input = @input
+			@result           = CSV.read(@filename, :headers => true)
+		end
 
-  it "wires input to output" do
-    assert_equal @input, @csv_output.output
-  end
+		it "generates a CSV file with the input data" do
+			assert_equal @expected_result, @result.to_a
+		end
+
+		it "bypasses input to output" do
+			assert_equal @input, @csv_output.output
+		end
+	end
+
+	describe "the file already exists" do
+		before :each do
+			FileUtils.touch(@filename)
+			@csv_output.input = @input
+			@result           = CSV.read(@filename)
+		end
+
+		it "does not write the headers" do
+			assert_equal @expected_result - [[ "id", "name" ]], @result
+		end
+	end
 end

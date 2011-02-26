@@ -11,9 +11,11 @@ module Itiel
       end
 
       def persist!(input_stream)
-        headers = input_stream.collect(&:keys).flatten.uniq
-        CSV.open(@file_name, "w") do |csv|
-          csv << headers
+        headers     = input_stream.collect(&:keys).flatten.uniq
+        file_exists = File.exists?(@file_name)
+
+        CSV.open(@file_name, "wb") do |csv|
+          csv << headers unless file_exists
           input_stream.each do |row|
             csv_row = []
             headers.each do |h|
