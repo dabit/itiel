@@ -2,15 +2,10 @@ describe Itiel::Extractors::CSVFile do
   before :each do
     csv_filename = "#{File.dirname(__FILE__)}/../../../tmp/test_file.csv"
 
-    lines = []
-    30.times do |i|
-      lines << [i]
-    end
-
     CSV.open(csv_filename, "wb") do |csv|
       csv << ["id"]
-      lines.each do |l|
-        csv << l
+      30.times do |i|
+        csv << [i]
       end
     end
 
