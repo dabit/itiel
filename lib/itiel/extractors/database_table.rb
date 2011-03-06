@@ -3,8 +3,8 @@ require 'active_record'
 module Itiel
   module Extractors
     class DatabaseTable
-      include Itiel::Nameable
       include ChainedOutputBehavior
+      include Itiel::Nameable
 
       attr_accessor :where
 
