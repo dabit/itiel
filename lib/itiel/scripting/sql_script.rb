@@ -12,7 +12,6 @@ module Itiel
 
       def initialize(*args)
         self.sql = args[0]
-        super
       end
 
       def execute!
