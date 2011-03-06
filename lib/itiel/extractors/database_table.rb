@@ -4,8 +4,8 @@ module Itiel
   module Extractors
     class DatabaseTable
       include Itiel::Nameable
+      include ChainedOutputBehavior
 
-      attr_accessor :next_step
       attr_accessor :where
 
       def initialize(connection)
@@ -14,14 +14,10 @@ module Itiel
         Model.establish_connection connection.connection_string
       end
 
-      def start
-        Model.find_in_batches(:batch_size => 20000) do |batch|
-          next_step.input = JSON.parse(batch.to_json)
+      def in_batches
+        Model.find_in_batches(:batch_size => self.batch_size) do |batch|
+          yield batch
         end
-      end
-
-      def output
-        Model.all.collect { |r| r.attributes }
       end
 
       class Model < ActiveRecord::Base
