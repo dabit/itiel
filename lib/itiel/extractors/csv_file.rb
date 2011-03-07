@@ -9,6 +9,7 @@ module Itiel
       attr_accessor :file_name
 
       def initialize(file_name)
+        self.batch_size = 20000
         self.file_name = file_name
       end
 
@@ -16,7 +17,7 @@ module Itiel
         lines = []
         i = 0
         CSV.foreach(self.file_name, :headers => true) do |f|
-          lines << f
+          lines << f.to_hash
           i += 1
           if i == self.batch_size
             yield lines

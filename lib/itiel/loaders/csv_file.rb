@@ -14,7 +14,7 @@ module Itiel
         headers     = input_stream.collect(&:keys).flatten.uniq
         file_exists = File.exists?(@file_name)
 
-        CSV.open(@file_name, "wb") do |csv|
+        CSV.open(@file_name, "ab") do |csv|
           csv << headers unless file_exists
           input_stream.each do |row|
             csv_row = []

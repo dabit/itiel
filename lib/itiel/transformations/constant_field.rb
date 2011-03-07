@@ -13,18 +13,21 @@ module Itiel
     #     transformation.append = { :field => "Constant Value" }
     #
     class ConstantField
-      include InputOutputBehavior
       include Itiel::Nameable
 
-      attr_accessor :append
+      attr_accessor :append, :next_step
 
       def initialize(*args)
         self.append = args.first
       end
 
+      def input=(stream)
+        next_step.input = transform!(stream)
+      end
+
       def transform!(input_stream)
         output_stream = []
-        self.input.each do |row|
+        input_stream.each do |row|
           output_stream << row.merge(self.append)
         end
         output_stream
