@@ -38,6 +38,5 @@ module Itiel
     autoload :SelectColumn          , 'itiel/transformation/select_column'
     autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
 		autoload :MapValues             , 'itiel/transformation/map_values'
-    autoload :SingleColumnSort      , 'itiel/transformation/single_column_sort'
   end
 end
