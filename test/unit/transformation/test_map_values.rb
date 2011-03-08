@@ -18,7 +18,6 @@ describe Itiel::Transformation::MapValues do
   end
 
   it "maps a column depending on it's value" do
-    @transformation.input = @input
-    assert_equal @output, @transformation.output
+    assert_equal @output, @transformation.transform!(@input)
   end
 end

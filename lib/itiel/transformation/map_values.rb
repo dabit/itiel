@@ -1,7 +1,20 @@
 module Itiel
   module Transformation
+    #
+    # Maps a field value to different values
+    #
+    # Usage:
+    #
+    #      @transformation = Itiel::Transformation::MapValues.new(
+    #        {
+    #          "active" => { true => "yes", false => "no" }
+    #        }
+    #      )
+    #
+    # This would map all the values on the active column, true to yes and false to no
+    #
     class MapValues
-      include InputOutputBehavior
+      include ChainedStep
       include Nameable
 
       attr_accessor :mapping
