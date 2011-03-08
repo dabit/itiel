@@ -1,4 +1,4 @@
-describe Itiel::Extractors::CSVFile do
+describe Itiel::Extractor::CSVFile do
   before :each do
     csv_filename = "#{File.dirname(__FILE__)}/../../../tmp/test_file.csv"
 
@@ -9,7 +9,7 @@ describe Itiel::Extractors::CSVFile do
       end
     end
 
-    @csv_file = Itiel::Extractors::CSVFile.new(csv_filename)
+    @csv_file = Itiel::Extractor::CSVFile.new(csv_filename)
     @csv_file.batch_size = 15
   end
 

@@ -11,12 +11,12 @@ module Itiel
     autoload :Connection            , 'itiel/DB/connection'
   end
 
-  module Extractors
-    autoload :CSVFile               , 'itiel/extractors/csv_file'
-    autoload :ChainedOutputBehavior , 'itiel/extractors/chained_output_behavior'
-    autoload :DatabaseConnection    , 'itiel/extractors/database_connection'
-    autoload :DatabaseTable         , 'itiel/extractors/database_table'
-    autoload :InputOutputBehavior   , 'itiel/extractors/input_output_behavior'
+  module Extractor
+    autoload :CSVFile               , 'itiel/extractor/csv_file'
+    autoload :ChainedOutputBehavior , 'itiel/extractor/chained_output_behavior'
+    autoload :DatabaseConnection    , 'itiel/extractor/database_connection'
+    autoload :DatabaseTable         , 'itiel/extractor/database_table'
+    autoload :InputOutputBehavior   , 'itiel/extractor/input_output_behavior'
   end
 
   module Loaders

@@ -1,7 +1,7 @@
 require 'csv'
 
 module Itiel
-  module Extractors
+  module Extractor
     class CSVFile
       include ChainedOutputBehavior
       include Itiel::Nameable

@@ -1,5 +1,5 @@
 module Legacy
-  class Orders < Itiel::Extractors::DatabaseTable; end
+  class Orders < Itiel::Extractor::DatabaseTable; end
 end
 
 module Destination

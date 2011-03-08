@@ -1,7 +1,7 @@
 require 'active_record'
 
 module Itiel
-  module Extractors
+  module Extractor
     class DatabaseTable
       include ChainedOutputBehavior
       include Itiel::Nameable

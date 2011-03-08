@@ -1,4 +1,4 @@
-describe Itiel::Extractors::DatabaseTable do
+describe Itiel::Extractor::DatabaseTable do
   before :each do
     @legacy_orders_source           = Legacy::Orders.new(legacy_connection)
     @legacy_orders_source.step_name = "Load orders from Legacy"

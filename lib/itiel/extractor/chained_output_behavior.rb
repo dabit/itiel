@@ -1,5 +1,5 @@
 module Itiel
-  module Extractors
+  module Extractor
     module ChainedOutputBehavior
       attr_accessor :next_step, :batch_size
 
