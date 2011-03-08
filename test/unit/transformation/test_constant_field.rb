@@ -20,12 +20,10 @@ describe Itiel::Transformation::ConstantField do
 				}
     ]
 
-    @transformation       = Itiel::Transformation::ConstantField.new("append" => "value")
+    @transformation = Itiel::Transformation::ConstantField.new("append" => "value")
   end
 
-  describe "transform!" do
-    it "appends a field with a constant value to the stream" do
-      assert_equal @expected_output, @transformation.transform!(@input)
-    end
+  it "appends a field with a constant value to the stream" do
+    assert_equal @expected_output, @transformation.transform!(@input)
   end
 end
