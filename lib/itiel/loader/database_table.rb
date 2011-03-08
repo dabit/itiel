@@ -1,5 +1,5 @@
 module Itiel
-  module Loaders
+  module Loader
     class DatabaseTable
       include InputOutputBehavior
       include Itiel::Nameable

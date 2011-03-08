@@ -1,4 +1,4 @@
-describe Itiel::Loaders::CSVFile do
+describe Itiel::Loader::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
 		File.unlink(@filename) if File.exist?(@filename)
@@ -20,7 +20,7 @@ describe Itiel::Loaders::CSVFile do
         [ "2"  , "Subject Name" ]
     ]
 
-		@csv_output = Itiel::Loaders::CSVFile.new(@filename)
+		@csv_output = Itiel::Loader::CSVFile.new(@filename)
   end
 
 	describe "the file does not exist" do

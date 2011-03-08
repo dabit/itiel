@@ -1,4 +1,4 @@
-describe Itiel::Loaders::DatabaseTable do
+describe Itiel::Loader::DatabaseTable do
   before(:each) do
     @output = Destination::ShippedOrders.new(destination_connection)
     @input = [

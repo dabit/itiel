@@ -19,10 +19,10 @@ module Itiel
     autoload :InputOutputBehavior   , 'itiel/extractor/input_output_behavior'
   end
 
-  module Loaders
-    autoload :CSVFile               , 'itiel/loaders/csv_file'
-    autoload :DatabaseTable         , 'itiel/loaders/database_table'
-    autoload :InputOutputBehavior   , 'itiel/loaders/input_output_behavior'
+  module Loader
+    autoload :CSVFile               , 'itiel/loader/csv_file'
+    autoload :DatabaseTable         , 'itiel/loader/database_table'
+    autoload :InputOutputBehavior   , 'itiel/loader/input_output_behavior'
   end
 
   module Scripting
