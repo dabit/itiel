@@ -14,7 +14,7 @@ module Itiel
     # => {:price => 12.50, :quantity => 3, :total => 37.5},{:price => 4.95, :quantity => 5, :total => 24.75}
     #
     class CalculatedField
-      include InputOutputBehavior
+      include ChainedStep
       include Itiel::Nameable
 
       attr_accessor :arguments
@@ -26,9 +26,14 @@ module Itiel
       end
 
       def transform!(input_stream)
-        input.each do |object|
+        sanity_check
+        input_stream.each do |object|
           object[@calculated_field] = @block.call(object)
         end
+      end
+
+      def sanity_check
+        raise "Undefined next_step" unless self.next_step
       end
     end
   end
