@@ -32,6 +32,7 @@ module Itiel
 
   module Transformations
     autoload :CalculatedField       , 'itiel/transformations/calculated_field'
+    autoload :ChainedStep           , 'itiel/transformations/chained_step'
     autoload :ConstantField         , 'itiel/transformations/constant_field'
     autoload :FieldRename           , 'itiel/transformations/field_rename'
     autoload :FieldSelect           , 'itiel/transformations/field_select'

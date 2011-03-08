@@ -13,9 +13,10 @@ module Itiel
     #     transformation.append = { :field => "Constant Value" }
     #
     class ConstantField
+      include ChainedStep
       include Itiel::Nameable
 
-      attr_accessor :append, :next_step
+      attr_accessor :append
 
       def initialize(*args)
         self.append = args.first
