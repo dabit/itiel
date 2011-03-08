@@ -4,12 +4,11 @@ describe Itiel::Transformation::FieldRename do
         "order_id" => "id",
         "name" => "client_name"
     )
-    @transformer.input = [
+
+    @input = [
         { "order_id" => 1 , "name" => "bucket"        , "price" => 1.5 },
         { "order_id" => 2 , "name" => "second bucket" , "price" => 3   }
     ]
-
-    @result = @transformer.output
   end
 
   it "renames the elements in the input hash" do
@@ -18,6 +17,6 @@ describe Itiel::Transformation::FieldRename do
         { "id" => 2 , "client_name" => "second bucket" , "price" => 3   }
     ]
 
-    assert_equal expected_result, @result
+    assert_equal expected_result, @transformer.transform!(@input)
   end
 end
