@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     class FieldRename
       include InputOutputBehavior
       include Itiel::Nameable

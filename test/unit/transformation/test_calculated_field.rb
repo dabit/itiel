@@ -1,6 +1,6 @@
-describe Itiel::Transformations::CalculatedField do
+describe Itiel::Transformation::CalculatedField do
   before(:each) do
-    @transformer = Itiel::Transformations::CalculatedField.new "total" do |fields|
+    @transformer = Itiel::Transformation::CalculatedField.new "total" do |fields|
       fields['price'] * fields['quantity']
     end
     @transformer.input = [

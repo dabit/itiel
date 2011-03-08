@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     #
     # This module defines the behavior for input and output
     # on all our transformations.

@@ -1,4 +1,4 @@
-describe Itiel::Transformations::SingleColumnSort do
+describe Itiel::Transformation::SingleColumnSort do
   before :each do
     @sorted_z_to_a = [
 				{ "id" => 1, "name" => "Zeta"  },
@@ -15,7 +15,7 @@ describe Itiel::Transformations::SingleColumnSort do
 
   describe "no order given" do
     before :each do
-      @transformation = Itiel::Transformations::SingleColumnSort.new("name")
+      @transformation = Itiel::Transformation::SingleColumnSort.new("name")
       @transformation.input = @sorted_z_to_a
     end
 
@@ -26,7 +26,7 @@ describe Itiel::Transformations::SingleColumnSort do
 
   describe "ascending order" do
     before :each do
-      @transformation = Itiel::Transformations::SingleColumnSort.new("name", :desc)
+      @transformation = Itiel::Transformation::SingleColumnSort.new("name", :desc)
       @transformation.input = @sorted_z_to_a
     end
 
@@ -38,7 +38,7 @@ describe Itiel::Transformations::SingleColumnSort do
   describe "invalid sort order given" do
     it "raises an exception" do
       assert_raises RuntimeError do
-        Itiel::Transformations::SingleColumnSort.new("name", :xyz)
+        Itiel::Transformation::SingleColumnSort.new("name", :xyz)
       end
     end
   end

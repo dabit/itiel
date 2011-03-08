@@ -30,14 +30,14 @@ module Itiel
     autoload :SQLScript             , 'itiel/scripting/sql_script'
   end
 
-  module Transformations
-    autoload :CalculatedField       , 'itiel/transformations/calculated_field'
-    autoload :ChainedStep           , 'itiel/transformations/chained_step'
-    autoload :ConstantField         , 'itiel/transformations/constant_field'
-    autoload :FieldRename           , 'itiel/transformations/field_rename'
-    autoload :FieldSelect           , 'itiel/transformations/field_select'
-    autoload :InputOutputBehavior   , 'itiel/transformations/input_output_behavior'
-		autoload :MapValues             , 'itiel/transformations/map_values'
-    autoload :SingleColumnSort      , 'itiel/transformations/single_column_sort'
+  module Transformation
+    autoload :CalculatedField       , 'itiel/transformation/calculated_field'
+    autoload :ChainedStep           , 'itiel/transformation/chained_step'
+    autoload :ConstantField         , 'itiel/transformation/constant_field'
+    autoload :FieldRename           , 'itiel/transformation/field_rename'
+    autoload :FieldSelect           , 'itiel/transformation/field_select'
+    autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
+		autoload :MapValues             , 'itiel/transformation/map_values'
+    autoload :SingleColumnSort      , 'itiel/transformation/single_column_sort'
   end
 end

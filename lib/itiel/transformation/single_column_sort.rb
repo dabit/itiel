@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     class SingleColumnSort
       include InputOutputBehavior
       include Itiel::Nameable

@@ -1,4 +1,4 @@
-describe Itiel::Transformations::MapValues do
+describe Itiel::Transformation::MapValues do
   before :each do
     @input = [
       { "id" => 1 , "active" => true  } ,
@@ -10,7 +10,7 @@ describe Itiel::Transformations::MapValues do
       { "id" => 2 , "active" => "no"  }
     ]
 
-    @transformation = Itiel::Transformations::MapValues.new(
+    @transformation = Itiel::Transformation::MapValues.new(
       {
         "active" => { true => "yes", false => "no" }
       }

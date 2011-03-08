@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     #
     # This class allow us to create a new field or replace the current value of a field 
     # by the result of the execution of a block

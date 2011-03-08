@@ -1,6 +1,6 @@
-describe Itiel::Transformations::FieldRename do
+describe Itiel::Transformation::FieldRename do
   before :each do
-    @transformer = Itiel::Transformations::FieldRename.new(
+    @transformer = Itiel::Transformation::FieldRename.new(
         "order_id" => "id",
         "name" => "client_name"
     )

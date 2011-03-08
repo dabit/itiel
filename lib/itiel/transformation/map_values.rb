@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     class MapValues
       include InputOutputBehavior
       include Nameable

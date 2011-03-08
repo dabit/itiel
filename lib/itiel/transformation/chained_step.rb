@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     #
     # Defined the behavior of the Transformation
     # and how they handle the data stream.

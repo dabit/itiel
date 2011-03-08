@@ -1,6 +1,6 @@
-describe Itiel::Transformations::FieldSelect do
+describe Itiel::Transformation::FieldSelect do
   before :each do
-    @transformer = Itiel::Transformations::FieldSelect.new("order_id", "name")
+    @transformer = Itiel::Transformation::FieldSelect.new("order_id", "name")
     @transformer.input = [
          { "order_id" => 1 , "name" => "bucket"        , "price" => 1.5 },
          { "order_id" => 2 , "name" => "second bucket" , "price" => 3   }

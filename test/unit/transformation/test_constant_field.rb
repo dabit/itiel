@@ -1,4 +1,4 @@
-describe Itiel::Transformations::ConstantField do
+describe Itiel::Transformation::ConstantField do
   before :each do
     @input = [
 				{
@@ -20,7 +20,7 @@ describe Itiel::Transformations::ConstantField do
 				}
     ]
 
-    @transformation       = Itiel::Transformations::ConstantField.new("append" => "value")
+    @transformation       = Itiel::Transformation::ConstantField.new("append" => "value")
   end
 
   describe "transform!" do

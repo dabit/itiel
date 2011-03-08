@@ -1,5 +1,5 @@
 module Itiel
-  module Transformations
+  module Transformation
     class FieldSelect
       include InputOutputBehavior
       include Itiel::Nameable
