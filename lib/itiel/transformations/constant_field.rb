@@ -26,11 +26,9 @@ module Itiel
       end
 
       def transform!(input_stream)
-        output_stream = []
-        input_stream.each do |row|
-          output_stream << row.merge(self.append)
+        input_stream.collect do |row|
+          row.merge(self.append)
         end
-        output_stream
       end
     end
   end
