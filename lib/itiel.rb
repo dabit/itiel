@@ -35,7 +35,7 @@ module Itiel
     autoload :ChainedStep           , 'itiel/transformation/chained_step'
     autoload :ConstantField         , 'itiel/transformation/constant_field'
     autoload :FieldRename           , 'itiel/transformation/field_rename'
-    autoload :FieldSelect           , 'itiel/transformation/field_select'
+    autoload :SelectColumn          , 'itiel/transformation/select_column'
     autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
 		autoload :MapValues             , 'itiel/transformation/map_values'
     autoload :SingleColumnSort      , 'itiel/transformation/single_column_sort'

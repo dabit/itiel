@@ -5,12 +5,12 @@ module Itiel
     #
     # Usage:
     #
-    #     @transformer = Itiel::Transformation::FieldSelect.new("order_id", "name")
+    #     @transformer = Itiel::Transformation::SelectColumn.new("order_id", "name")
     #
     # In the example, the output stream would only have the order_id and the name column
     # All other columns will be ignored
     #
-    class FieldSelect
+    class SelectColumn
       include ChainedStep
       include Itiel::Nameable
 
