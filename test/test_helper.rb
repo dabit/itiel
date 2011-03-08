@@ -9,6 +9,8 @@ require 'turn'
 
 ENV['RAILS_ENV'] ||= 'test'
 
+Dir.mkdir('tmp') unless File.exists?('tmp')
+
 require 'support/source_schema'
 require 'support/destination_schema'
 require 'support/example'
