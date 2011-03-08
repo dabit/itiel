@@ -1,7 +1,17 @@
 module Itiel
   module Transformation
+    #
+    # This transformation only selects specific column on the data stream
+    #
+    # Usage:
+    #
+    #     @transformer = Itiel::Transformation::FieldSelect.new("order_id", "name")
+    #
+    # In the example, the output stream would only have the order_id and the name column
+    # All other columns will be ignored
+    #
     class FieldSelect
-      include InputOutputBehavior
+      include ChainedStep
       include Itiel::Nameable
 
 			attr_accessor :mappings
@@ -12,7 +22,7 @@ module Itiel
 
       def transform!(input_stream)
         selected_output = []
-        input.each do |object|
+        input_stream.each do |object|
           selected_output << object.select {|key, value| self.mappings.include? key }
         end
 
