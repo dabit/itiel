@@ -1,7 +1,7 @@
 module Itiel
   module Loader
     class DatabaseTable
-      include InputOutputBehavior
+      include ChainedStep
       include Itiel::Nameable
 
       def initialize(connection)
@@ -9,7 +9,7 @@ module Itiel
         Model.establish_connection connection.connection_string
       end
 
-      def persist!(input_stream)
+      def persist(input_stream)
         input_stream.each do |element|
           Model.create!(element)
         end

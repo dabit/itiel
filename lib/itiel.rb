@@ -21,12 +21,12 @@ module Itiel
 
   module Loader
     autoload :CSVFile               , 'itiel/loader/csv_file'
+    autoload :ChainedStep           , 'itiel/loader/chained_step'
     autoload :DatabaseTable         , 'itiel/loader/database_table'
-    autoload :InputOutputBehavior   , 'itiel/loader/input_output_behavior'
   end
 
   module Scripting
-    autoload :ChainedStep           , 'itiel/scripting/chained_step.rb'
+    autoload :ChainedStep           , 'itiel/scripting/chained_step'
     autoload :InputOutputBehavior   , 'itiel/scripting/input_output_behavior'
     autoload :SQLScript             , 'itiel/scripting/sql_script'
   end

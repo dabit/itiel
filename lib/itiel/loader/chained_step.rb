@@ -10,22 +10,21 @@ module Itiel
     #
     module ChainedStep
       module InstanceMethods
+        attr_accessor :next_step
+
         def input=(input_stream)
           Itiel::Logger.log_received(self, input_stream.size)
           persist(input_stream)
-          self.next_step = input_stream if self.next_step
+          self.next_step.input = input_stream if next_step
           Itiel::Logger.log_processed(self, input_stream.size)
         end
 
         #
-        # This method has to be implemented in the class
+        # This method must be implemented in the class
         #
         def persist(input_stream)
           raise "persist is not implemented"
         end
-
-        private
-        attr_writer :output
       end
 
       def self.included(receiver)

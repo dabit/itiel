@@ -12,7 +12,7 @@ describe Itiel::Loader::DatabaseTable do
 				},
     ]
 
-		@output.input = @input
+		@output.persist(@input)
     @results = Destination::ShippedOrders::Model.all
   end
 
@@ -29,9 +29,5 @@ describe Itiel::Loader::DatabaseTable do
       result = Destination::ShippedOrders::Model.where(:name => row["name"]).first
       assert_equal row["name"], result.name
     end
-  end
-
-  it "wires input to output" do
-    assert_equal @input, @output.output
   end
 end

@@ -25,23 +25,19 @@ describe Itiel::Loader::CSVFile do
 
 	describe "the file does not exist" do
 		before :each do
-			@csv_output.input = @input
+			@csv_output.persist(@input)
 			@result           = CSV.read(@filename, :headers => true)
 		end
 
 		it "generates a CSV file with the input data" do
 			assert_equal @expected_result, @result.to_a
 		end
-
-		it "bypasses input to output" do
-			assert_equal @input, @csv_output.output
-		end
 	end
 
 	describe "the file already exists" do
 		before :each do
 			FileUtils.touch(@filename)
-			@csv_output.input = @input
+			@csv_output.persist(@input)
 			@result           = CSV.read(@filename)
 		end
 
