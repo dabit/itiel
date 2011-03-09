@@ -9,7 +9,7 @@ unless defined?(TMP_DIR)
   require 'minitest/autorun'
 
   require 'bundler/setup'
-  require 'turn'
+  # require 'turn'
 
   ENV['RAILS_ENV'] ||= 'test'
 
