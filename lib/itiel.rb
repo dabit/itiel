@@ -14,6 +14,8 @@ module Itiel
   module Extractor
     autoload :CSVFile               , 'itiel/extractor/csv_file'
     autoload :ChainedOutputBehavior , 'itiel/extractor/chained_output_behavior'
+    autoload :ChainedStep           , 'itiel/extractor/chained_step'
+    autoload :CustomSQL             , 'itiel/extractor/custom_sql'
     autoload :DatabaseConnection    , 'itiel/extractor/database_connection'
     autoload :DatabaseTable         , 'itiel/extractor/database_table'
     autoload :InputOutputBehavior   , 'itiel/extractor/input_output_behavior'

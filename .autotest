@@ -4,7 +4,7 @@ require 'autotest/bundler'
 require 'autotest/timestamp'
 
 Autotest.add_hook :initialize do |at|
-  %w{.rvmrc .git tmp .autotest gemspec README lib Rakefile Gemfile test/support}.each do |exception|
+  %w{.rvmrc .git tmp .autotest gemspec README Rakefile Gemfile test/support}.each do |exception|
     at.add_exception(exception)
   end
 end
