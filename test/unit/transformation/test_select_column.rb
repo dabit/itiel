@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Transformation::SelectColumn do
   before :each do
     @transformer = Itiel::Transformation::SelectColumn.new("order_id", "name")

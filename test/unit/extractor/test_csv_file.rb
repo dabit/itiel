@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Extractor::CSVFile do
   before :each do
     csv_filename = "#{File.dirname(__FILE__)}/../../../tmp/test_file.csv"

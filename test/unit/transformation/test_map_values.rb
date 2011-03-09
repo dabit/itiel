@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Transformation::MapValues do
   before :each do
     @input = [

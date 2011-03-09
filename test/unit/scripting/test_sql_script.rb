@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Scripting::SQLScript do
   before :each do
     @sql_script = Itiel::Scripting::SQLScript.new("DELETE FROM orders")

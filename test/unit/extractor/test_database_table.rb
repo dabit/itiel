@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Extractor::DatabaseTable do
   before :each do
     @legacy_orders_source           = Legacy::Orders.new(legacy_connection)

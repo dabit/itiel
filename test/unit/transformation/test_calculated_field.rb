@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Transformation::CalculatedField do
   before(:each) do
     @transformer = Itiel::Transformation::CalculatedField.new "total" do |fields|

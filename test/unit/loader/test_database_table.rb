@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Loader::DatabaseTable do
   before(:each) do
     @output = Destination::ShippedOrders.new(destination_connection)

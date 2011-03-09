@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Job do
   describe "Itiel::Job#run" do
     it "yields a new instance of Itiel::Job" do

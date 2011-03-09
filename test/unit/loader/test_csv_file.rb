@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Loader::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")

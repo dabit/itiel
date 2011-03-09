@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Transformation::FieldRename do
   before :each do
     @transformer = Itiel::Transformation::FieldRename.new(

@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe Itiel::Scripting::ChainedStep do
   before :each do
     class Step
