@@ -5,7 +5,7 @@ module Itiel
     # connection
     #
     class SQLScript
-      include InputOutputBehavior
+      include ChainedStep
 
       attr_accessor :connection
       attr_accessor :sql
@@ -14,7 +14,7 @@ module Itiel
         self.sql = args[0]
       end
 
-      def execute!
+      def execute(*)
         sanity_check
 
         Executor.establish_connection connection.connection_string

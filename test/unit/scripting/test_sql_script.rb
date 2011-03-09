@@ -27,17 +27,13 @@ describe Itiel::Scripting::SQLScript do
   describe "a connection is set" do
     before :each do
       @sql_script.connection = legacy_connection
+      @sql_script.next_step = mock(:input=)
     end
 
     it "executes the sql script" do
       @sql_script.input = @data_stream
       # No idea how to test the execution of the script
       # I need better ActiveRecord handling?
-    end
-
-    it "bypasses input to output" do
-      @sql_script.input = @data_stream
-      assert_equal @data_stream, @sql_script.output
     end
   end
 end

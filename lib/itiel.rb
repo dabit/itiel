@@ -26,6 +26,7 @@ module Itiel
   end
 
   module Scripting
+    autoload :ChainedStep           , 'itiel/scripting/chained_step.rb'
     autoload :InputOutputBehavior   , 'itiel/scripting/input_output_behavior'
     autoload :SQLScript             , 'itiel/scripting/sql_script'
   end
