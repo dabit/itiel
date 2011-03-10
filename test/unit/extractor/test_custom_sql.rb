@@ -12,7 +12,7 @@ describe Itiel::Extractor::CustomSQL do
       table.insert(:name => "name #{i}")
     end
 
-    @custom_sql = Itiel::Extractor::CustomSQL.new
+    @custom_sql            = Itiel::Extractor::CustomSQL.new
     @custom_sql.connection = :test
   end
 

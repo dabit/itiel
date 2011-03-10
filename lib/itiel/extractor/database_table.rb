@@ -2,29 +2,28 @@ require 'active_record'
 
 module Itiel
   module Extractor
-    class DatabaseTable
-      include ChainedOutputBehavior
-      include Itiel::Nameable
+		#
+		# Extracts all the contents from a Database table into the stream
+		# and passes it on to it's next_step
+		#
+		# Usage:
+		#
+		#     @extractor            = Itiel::Extractor::DatabaseTable.new
+		#     @extractor.connection = :test
+		#     @extractor.table_name = 'test_table'
+		#
+		#
+    class DatabaseTable < CustomSQL
+			attr_accessor :table_name
 
-      attr_accessor :where
-
-      def initialize(connection)
-        # TODO: Do not establish_connection if already established
-        Model.set_table_name(self.class.name.demodulize.tableize)
-        Model.establish_connection connection.connection_string
-      end
-
-      def in_batches
-        Model.find_in_batches(:batch_size => self.batch_size) do |batch|
-          yield batch
-        end
-      end
-
-      class Model < ActiveRecord::Base
-        def self.include_root_in_json
-          false
-        end
-      end
+			def in_batches
+        db = self.class.sequel_connection(connection)
+        offset = 0
+        while db[table_name.to_sym].limit(self.batch_size, offset).count > 0
+          yield db[table_name.to_sym].limit(self.batch_size, offset).all
+          offset += self.batch_size
+				end
+			end
     end
   end
 end

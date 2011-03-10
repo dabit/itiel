@@ -37,7 +37,7 @@ module Itiel
       end
 
       def in_batches
-        db = self.class.sequel_connection(connection)
+        db     = self.class.sequel_connection(connection)
         offset = 0
         while db[script].limit(self.batch_size, offset).count > 0
           yield db[script].limit(self.batch_size, offset).all
