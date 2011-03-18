@@ -3,7 +3,7 @@ require 'csv'
 module Itiel
   module Extractor
     class CSVFile
-      include ChainedOutputBehavior
+      include ChainedStep
       include Itiel::Nameable
 
       attr_accessor :file_name
