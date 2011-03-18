@@ -11,7 +11,13 @@ describe Itiel::Extractor::ChainedStep do
 
   it "defines next_step" do
     assert_respond_to @step, :next_step=
+    assert_respond_to @step, :next_step
   end
+
+	it "defines batch_size" do
+    assert_respond_to @step, :batch_size=
+    assert_respond_to @step, :batch_size
+	end
 
   it "sets the input for next step by calling in_batches" do
     stream          = mock
@@ -25,7 +31,11 @@ describe Itiel::Extractor::ChainedStep do
 
   it "raises an exception if the class does not implement in_batches" do
     assert_raises RuntimeError do
-      @step.start
+      @step.in_batches
     end
   end
+
+	it "starts with a batch_size value of 20000 by default" do
+		assert_equal 20000, @step.batch_size
+	end
 end
