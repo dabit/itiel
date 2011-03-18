@@ -2,6 +2,16 @@ require 'csv'
 
 module Itiel
   module Extractor
+    #
+    # Extracts all specified CSV file rows and sends it in batches to
+    # its next step
+    #
+    # Usage:
+    #
+    #    csv_file            = Itiel::Extractor::CSVFile.new('FileName.csv')
+    #    csv_file.batch_size = 15
+    #    csv.file.start
+    #
     class CSVFile
       include ChainedStep
       include Itiel::Nameable
@@ -15,14 +25,13 @@ module Itiel
 
       def in_batches
         lines = []
-        i = 0
-        CSV.foreach(self.file_name, :headers => true) do |f|
-          lines << f.to_hash
-          i += 1
-          if i == self.batch_size
-            yield lines
-            i = 0
-            lines.clear
+        CSV.open(self.file_name, headers: true) do |csv|
+          csv.each do |f|
+            lines << f.to_hash
+            if ((csv.lineno - 1) % self.batch_size) == 0
+              yield lines
+              lines.clear
+            end
           end
         end
         yield lines if lines.size > 0
