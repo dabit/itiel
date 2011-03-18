@@ -7,3 +7,4 @@ pkg/*
 **.sqlite3
 tmp
 doc
+coverage
