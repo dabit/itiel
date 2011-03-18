@@ -27,17 +27,6 @@ module Itiel
         end
         yield lines if lines.size > 0
       end
-
-      # def load!
-      #   # Let's assume for now that header will always
-      #   # be present
-      #   contents = CSV.read(self.file_name, :headers => true)
-      #   output_stream = []
-      #   contents.each do |r|
-      #     output_stream << r.to_hash
-      #   end
-      #   output_stream
-      # end
     end
   end
 end
