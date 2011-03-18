@@ -22,10 +22,6 @@ module Itiel
         self.append = args.first
       end
 
-      def input=(stream)
-        next_step.input = transform!(stream)
-      end
-
       def transform!(input_stream)
         input_stream.collect do |row|
           row.merge(self.append)
