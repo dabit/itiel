@@ -20,17 +20,10 @@ module Itiel
     #
     class CustomSQL
       include ChainedStep
+      include Itiel::DB::SQLConnectable
       include Itiel::Nameable
 
-      attr_accessor :connection, :script, :config_file_path
-
-      def self.connection_file_path
-        @@connection_file_path ||= 'config/database.yml'
-      end
-
-      def self.connection_file_path=(value)
-        @@connection_file_path = value
-      end
+      attr_accessor :script
 
       def initialize(*args)
         self.script = args[0]
@@ -43,16 +36,6 @@ module Itiel
           yield db[script].limit(self.batch_size, offset).all
           offset += self.batch_size
         end
-      end
-
-      def self.sequel_connection(connection_name)
-        Sequel.connect read_connection_string(connection_name)
-      end
-
-      private
-      def self.read_connection_string(connection_name)
-        connections = YAML.load_file(connection_file_path)
-        connections[connection_name.to_s]
       end
     end
   end

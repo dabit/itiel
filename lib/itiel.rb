@@ -8,7 +8,8 @@ module Itiel
   autoload :Nameable                , 'itiel/nameable'
 
   module DB
-    autoload :Connection            , 'itiel/DB/connection'
+    autoload :Connection            , 'itiel/db/connection'
+    autoload :SQLConnectable        , 'itiel/db/sql_connectable.rb'
   end
 
   module Extractor

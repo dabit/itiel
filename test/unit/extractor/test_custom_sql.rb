@@ -28,9 +28,4 @@ describe Itiel::Extractor::CustomSQL do
       assert_equal 10, y.length
     end
   end
-
-  it "sets and gets connection_file_path" do
-    assert_respond_to Itiel::Extractor::CustomSQL, :connection_file_path
-    assert_respond_to Itiel::Extractor::CustomSQL, :connection_file_path=
-  end
 end
