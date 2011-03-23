@@ -2,6 +2,7 @@
 # Make sure you only run this code once
 #
 unless defined?(TMP_DIR)
+  require 'rubygems'
   require 'bundler/setup'
   require 'simplecov'
   SimpleCov.start do
