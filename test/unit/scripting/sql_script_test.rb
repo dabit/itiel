@@ -1,4 +1,7 @@
 require 'test_helper'
+require 'support/source_schema'
+require 'support/destination_schema'
+require 'support/example'
 
 describe Itiel::Scripting::SQLScript do
   before :each do

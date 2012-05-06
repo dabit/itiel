@@ -1,11 +1,17 @@
+require 'autotest/fsevent'
 require 'autotest/growl'
 require 'autotest/fsevent'
-require 'autotest/bundler'
 require 'autotest/timestamp'
 
 Autotest.add_hook :initialize do |at|
-  %w{.rvmrc .git tmp .autotest gemspec README Rakefile Gemfile test/support}.each do |exception|
-    at.add_exception(exception)
-  end
-end
+  at.clear_mappings
 
+  %w{.git coverage/ README gemspec DS_Store features/ Gemfile.lock Rakefile Gemfile}.each do |exception|
+    at.add_exception exception
+  end
+
+  at.add_mapping %r%^lib/itiel/(.*)\.rb$% do |_, m|
+    ["test/unit/#{m[1]}_test.rb"]
+  end
+
+end
