@@ -5,7 +5,7 @@ module Itiel
       include Itiel::Nameable
 
       def initialize(connection)
-        Model.set_table_name(self.class.name.demodulize.tableize)
+        Model.table_name = self.class.name.demodulize.tableize
         Model.establish_connection connection.connection_string
       end
 
