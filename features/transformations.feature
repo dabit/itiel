@@ -77,3 +77,25 @@ Feature: Transformations
       | 2  | ruby  | active   |
       | 3  | rails | inactive |
       | 4  | pete  | active   |
+
+  Scenario: Select specific columns from the stream
+    # @select_column = Itiel::Transformation::SelectColumn.new("id", "state")
+    Given I create a Transformation::SelectColumn object with "id" and "state"
+
+    # @source.next_step     = @select_column
+    # @select_column.next_step = @destination
+    And the data flows in the following direction:
+      | @source        |
+      | @select_column |
+      | @destination   |
+
+    # @source.start
+    When I start the source
+
+    Then the "destination.csv" file should exist with the following content:
+      | id | state    |
+      | 1  | active   |
+      | 2  | active   |
+      | 3  | inactive |
+      | 4  | active   |
+

@@ -1,7 +1,7 @@
 module Itiel
   module Transformation
     #
-    # This transformation only selects specific column on the data stream
+    # This transformation only selects specific columns on the data stream
     #
     # Usage:
     #
@@ -14,7 +14,7 @@ module Itiel
       include ChainedStep
       include Itiel::Nameable
 
-			attr_accessor :mappings
+  		attr_accessor :mappings
 
       def initialize(*args)
         self.mappings = args
