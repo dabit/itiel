@@ -35,12 +35,12 @@ module Itiel
   end
 
   module Transformation
-    autoload :CalculatedField       , 'itiel/transformation/calculated_field'
+    autoload :CalculatedColumn      , 'itiel/transformation/calculated_column'
     autoload :ChainedStep           , 'itiel/transformation/chained_step'
     autoload :ConstantField         , 'itiel/transformation/constant_field'
     autoload :RenameColumn          , 'itiel/transformation/rename_column'
     autoload :SelectColumn          , 'itiel/transformation/select_column'
     autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
-  	autoload :MapValues             , 'itiel/transformation/map_values'
+    autoload :MapValues             , 'itiel/transformation/map_values'
   end
 end
