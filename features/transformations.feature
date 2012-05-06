@@ -57,3 +57,23 @@ Feature: Transformations
       | 4  | pete  | 1     |
 
 
+  Scenario: Rename a column
+    # @field_rename = Itiel::Transformation::FieldRename.new("state" => "status")
+    Given I create a Transformation::FieldRename object from "state" to "status"
+
+    # @source.next_step     = @field_rename
+    # @field_rename.next_step = @destination
+    And the data flows in the following direction:
+      | @source      |
+      | @field_rename  |
+      | @destination |
+
+    # @source.start
+    When I start the source
+
+    Then the "destination.csv" file should exist with the following content:
+      | id | name  | status   |
+      | 1  | john  | active   |
+      | 2  | ruby  | active   |
+      | 3  | rails | inactive |
+      | 4  | pete  | active   |
