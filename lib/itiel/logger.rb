@@ -30,6 +30,7 @@ module Itiel
     end
 
     def self.info(message)
+      self.logger ||= ::Logger.new(STDOUT)
       self.logger.info(message)
     end
 
