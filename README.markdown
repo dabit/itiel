@@ -1,5 +1,7 @@
 # Itiel
 
+[![Build Status](https://secure.travis-ci.org/dabit/itiel.png?branch=master)](http://travis-ci.org/dabit/itiel)
+
 # WARNING THIS README IS VERY OUTDATED AS I AM WORKING IN A DIFFERENT WAY TO RUN JOBS
 
 
