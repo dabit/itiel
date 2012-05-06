@@ -1,6 +1,6 @@
 Feature: Transformations
 
-  Scenario: Append a constant value column to the original stream
+  Background:
     Given a "source.csv" file with the following rows:
       | id | name  | state    |
       | 1  | john  | active   |
@@ -9,11 +9,14 @@ Feature: Transformations
       | 4  | pete  | active   |
 
     # @source = Itiel::Extractors::CSVFile.new('source.csv')
-    When I create a Extractor::CSVFile object with "source.csv"
+    And I create a Extractor::CSVFile object with "source.csv"
     # @destination  = Itiel::Loaders::CSVFile.new('destination.csv')
     And I create a Loader::CSVFile object with "destination.csv"
+
+
+  Scenario: Append a constant value column to the original stream
     # @contsant_field = Itiel::Transformation::ConstantField.new("constant" => "value")
-    And I create a Transformation::ConstantField object with "constant" => "value"
+    Given I create a Transformation::ConstantField object with "constant" => "value"
 
     # @source.next_step         = @constant_field
     # @contsant_field.next_step = @destination
@@ -31,3 +34,26 @@ Feature: Transformations
       | 2  | ruby  | active   | value    |
       | 3  | rails | inactive | value    |
       | 4  | pete  | active   | value    |
+
+  Scenario: Map Values in a column
+    # @map_values = Itiel::Transformation::MapValues.new("state" => { "active" => 1, "inactive" => 0 })
+    Given I create a Transformation::MapValues object for the state column to integer
+
+    # @source.next_step     = @map_values
+    # @map_values.next_step = @destination
+    And the data flows in the following direction:
+      | @source      |
+      | @map_values  |
+      | @destination |
+
+    # @source.start
+    When I start the source
+
+    Then the "destination.csv" file should exist with the following content:
+      | id | name  | state |
+      | 1  | john  | 1     |
+      | 2  | ruby  | 1     |
+      | 3  | rails | 0     |
+      | 4  | pete  | 1     |
+
+
