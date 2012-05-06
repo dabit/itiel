@@ -1,5 +1,8 @@
 # Itiel
 
+# WARNING THIS README IS VERY OUTDATED AS I AM WORKING IN A DIFFERENT WAY TO RUN JOBS
+
+
 Hopefully, it will be an awesome Framework to do ETL with Ruby. It
 should only work with *Ruby 1.9*.
 
@@ -16,12 +19,12 @@ Right now, this works:
     # 3,rails,inactive
     # 4,pete,active
 
-    @source       = Itiel::Extractors::CSVFile.new('source.csv')
-    @destination  = Itiel::Loaders::CSVFile.new('destination.csv')
-    @destination2 = Itiel::Loaders::CSVFile.new('destination2.csv')
+    @source       = Itiel::Extractor::CSVFile.new('source.csv')
+    @destination  = Itiel::Loader::CSVFile.new('destination.csv')
+    @destination2 = Itiel::Loader::CSVFile.new('destination2.csv')
 
-    @sorter       = Itiel::Transformations::SingleColumnSort.new("name")
-    @add_constant = Itiel::Transformations::ConstantField.new("constant" => "value")
+    @sorter       = Itiel::Transformation::SingleColumnSort.new("name")
+    @add_constant = Itiel::Transformation::ConstantField.new("constant" => "value")
 
     #
     # The define way
@@ -37,7 +40,7 @@ Right now, this works:
 
     #
     # The run way
-    # 
+    #
 
     Itiel::Job.run do |job|
       job.step @source       => @add_constant
