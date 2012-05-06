@@ -14,16 +14,18 @@ module Itiel
       include ChainedStep
       include Itiel::Nameable
 
-      def initialize(file_name)
+      def initialize(file_name, append=true)
+        @append    = append
         @file_name = file_name
       end
 
       def persist(input_stream)
-        headers     = input_stream.collect(&:keys).flatten.uniq
-        file_exists = File.exists?(@file_name)
+        headers = input_stream.collect(&:keys).flatten.uniq
+        mode    = @append ? "ab" : "w"
+        skip_headers = skip_headers?
 
-        CSV.open(@file_name, "ab") do |csv|
-          csv << headers unless file_exists
+        CSV.open(@file_name, mode) do |csv|
+          csv << headers unless skip_headers
           input_stream.each do |row|
             csv_row = []
             headers.each do |h|
@@ -32,6 +34,11 @@ module Itiel
             csv << csv_row
           end
         end
+      end
+
+      private
+      def skip_headers?
+        File.exists?(@file_name) && @append
       end
     end
   end
