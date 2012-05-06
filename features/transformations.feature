@@ -57,9 +57,9 @@ Feature: Transformations
       | 4  | pete  | 1     |
 
 
-  Scenario: Rename a column
-    # @field_rename = Itiel::Transformation::FieldRename.new("state" => "status")
-    Given I create a Transformation::FieldRename object from "state" to "status"
+  Scenario: Rename an existing column
+    # @field_rename = Itiel::Transformation::RenameColumn.new("state" => "status")
+    Given I create a Transformation::RenameColumn object from "state" to "status"
 
     # @source.next_step     = @field_rename
     # @field_rename.next_step = @destination

@@ -38,9 +38,9 @@ module Itiel
     autoload :CalculatedField       , 'itiel/transformation/calculated_field'
     autoload :ChainedStep           , 'itiel/transformation/chained_step'
     autoload :ConstantField         , 'itiel/transformation/constant_field'
-    autoload :FieldRename           , 'itiel/transformation/field_rename'
+    autoload :RenameColumn          , 'itiel/transformation/rename_column'
     autoload :SelectColumn          , 'itiel/transformation/select_column'
     autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
-		autoload :MapValues             , 'itiel/transformation/map_values'
+  	autoload :MapValues             , 'itiel/transformation/map_values'
   end
 end
