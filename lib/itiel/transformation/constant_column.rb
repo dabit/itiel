@@ -4,15 +4,18 @@ module Itiel
     # This transformation appends a new Column
     # with a constant value to the data stream
     #
-    #     Itiel::Transformation::ConstantField.new(:field => "Constant Value")
+    #     Itiel::Transformation::ConstantColumn.new( "column" => "Constant Value")
     #
     # Or, specify the column and the value later:
     #
-    #     transformation = Itiel::Transformation::ConstantField.new
+    #     transformation = Itiel::Transformation::ConstantColumn.new
     #
-    #     transformation.append = { :field => "Constant Value" }
+    #     transformation.append = { "column" => "Constant Value" }
     #
-    class ConstantField
+  	# The resulting stream will have a column named "column" with the value
+  	# "Constant Value" for all rows.
+  	#
+    class ConstantColumn
       include ChainedStep
       include Itiel::Nameable
 

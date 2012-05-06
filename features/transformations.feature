@@ -15,14 +15,14 @@ Feature: Transformations
 
 
   Scenario: Append a constant value column to the original stream
-    # @contsant_field = Itiel::Transformation::ConstantField.new("constant" => "value")
-    Given I create a Transformation::ConstantField object with "constant" => "value"
+    # @constant_column = Itiel::Transformation::ConstantColumn.new("constant" => "value")
+    Given I create a Transformation::ConstantColumn object with "constant" => "value"
 
-    # @source.next_step         = @constant_field
-    # @contsant_field.next_step = @destination
+    # @source.next_step          = @constant_column
+    # @constant_column.next_step = @destination
     And the data flows in the following direction:
       | @source         |
-      | @constant_field |
+      | @constant_column |
       | @destination    |
 
     # @source.start

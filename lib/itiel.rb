@@ -37,7 +37,7 @@ module Itiel
   module Transformation
     autoload :CalculatedColumn      , 'itiel/transformation/calculated_column'
     autoload :ChainedStep           , 'itiel/transformation/chained_step'
-    autoload :ConstantField         , 'itiel/transformation/constant_field'
+    autoload :ConstantColumn        , 'itiel/transformation/constant_column'
     autoload :RenameColumn          , 'itiel/transformation/rename_column'
     autoload :SelectColumn          , 'itiel/transformation/select_column'
     autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
