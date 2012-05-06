@@ -58,15 +58,15 @@ Feature: Transformations
 
 
   Scenario: Rename an existing column
-    # @field_rename = Itiel::Transformation::RenameColumn.new("state" => "status")
+    # @rename_column = Itiel::Transformation::RenameColumn.new("state" => "status")
     Given I create a Transformation::RenameColumn object from "state" to "status"
 
-    # @source.next_step     = @field_rename
-    # @field_rename.next_step = @destination
+    # @source.next_step     = @rename_column
+    # @rename_column.next_step = @destination
     And the data flows in the following direction:
-      | @source      |
-      | @field_rename  |
-      | @destination |
+      | @source        |
+      | @rename_column |
+      | @destination   |
 
     # @source.start
     When I start the source
