@@ -2,16 +2,21 @@ module Itiel
   module Transformation
     #
     # This class allow us to create a new column or replace the current value of a column
-    # by the result of the execution of a block
+    # by the result of the execution of a block.
     #
     # Example:
+    #
     # calculated = CalculatedColumn.new 'total' do |columns|
-    #     columns['quantity'] * columns['total']
+    #     columns['quantity'].to_i * columns['total']
     # end
     #
     # calculated.input = [{:price => 12.50, :quantity => 3},{:price => 4.95, :quantity => 5}]
     # calculated.output
     # => {:price => 12.50, :quantity => 3, :total => 37.5},{:price => 4.95, :quantity => 5, :total => 24.75}
+    #
+    # It is important to note that you have to use casting on numeric fields
+    # just to make sure that it is from the right type. Stored column types
+    # may vary depending on the source.
     #
     class CalculatedColumn
       include ChainedStep
