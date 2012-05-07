@@ -21,8 +21,8 @@ describe Itiel::Transformation::ChainedStep do
   it "sets next_step.input as the result of transform!" do
     stream = mock
     next_step = mock
-    @step.expects(:transform!).with(stream).returns(stream)
-    next_step.expects(:input=).once.with(stream)
+    mock(@step).transform!(stream) { stream }
+    mock(next_step).input=(stream)
     @step.next_step = next_step
     @step.input = stream
   end

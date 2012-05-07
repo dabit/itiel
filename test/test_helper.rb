@@ -8,6 +8,7 @@ unless defined?(TMP_DIR)
   end
 
   require 'itiel'
+  require 'rr'
 
   #require 'minitest/spec'
   #require 'minitest/unit'
@@ -20,10 +21,11 @@ unless defined?(TMP_DIR)
   TMP_DIR = File.expand_path("#{File.dirname(__FILE__)}/../tmp")
   Dir.mkdir(TMP_DIR) unless File.exist?(TMP_DIR)
 
-  require 'mocha'
-
   log = Logger.new("#{File.dirname(__FILE__)}/../tmp/test.log")
   log.level = Logger::INFO
   Itiel::Logger.logger = log
 
+  class MiniTest::Unit::TestCase
+    include RR::Adapters::TestUnit
+  end
 end

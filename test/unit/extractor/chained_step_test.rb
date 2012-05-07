@@ -2,11 +2,9 @@ require 'test_helper'
 
 describe Itiel::Extractor::ChainedStep do
   before :each do
-    class Step
-      include Itiel::Extractor::ChainedStep
-    end
-
-    @step = Step.new
+    klass = Class.new
+    klass.send(:include, Itiel::Extractor::ChainedStep)
+    @step = klass.new
   end
 
   it "defines next_step" do
@@ -14,18 +12,21 @@ describe Itiel::Extractor::ChainedStep do
     assert_respond_to @step, :next_step
   end
 
-	it "defines batch_size" do
+  it "defines batch_size" do
     assert_respond_to @step, :batch_size=
     assert_respond_to @step, :batch_size
-	end
+  end
 
   it "sets the input for next step by calling in_batches" do
     stream          = mock
     next_step       = mock
     @step.next_step = next_step
 
-    @step.expects(:in_batches).yields(stream)
-    next_step.expects(:input=).with(stream)
+    mock(@step).in_batches.with_any_args do |*args|
+      block = args.first
+      mock(next_step).input=(anything)
+      block.call
+    end
     @step.start
   end
 
@@ -35,7 +36,7 @@ describe Itiel::Extractor::ChainedStep do
     end
   end
 
-	it "starts with a batch_size value of 20000 by default" do
-		assert_equal 20000, @step.batch_size
-	end
+  it "starts with a batch_size value of 20000 by default" do
+    assert_equal 20000, @step.batch_size
+  end
 end

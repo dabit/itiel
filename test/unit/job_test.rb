@@ -1,13 +1,13 @@
 require 'test_helper'
 
 describe Itiel::Job do
-  describe "Itiel::Job#run" do
+  describe "#run" do
     it "yields a new instance of Itiel::Job" do
       Itiel::Job.run {|object| assert_instance_of(Itiel::Job, object)}
     end
   end
 
-  describe "Itiel::Job#define" do
+  describe "#define" do
     it "returns an instance of Itiel::Job" do
       assert_instance_of Itiel::Job, Itiel::Job.define
     end
@@ -26,7 +26,7 @@ describe Itiel::Job do
   describe "#run!" do
     it "calls the block on self.block" do
       block = Proc.new {}
-      block.expects(:call)
+      mock(block).call(is_a(Itiel::Job))
       job = Itiel::Job.define(&block)
       job.run!
     end
@@ -37,7 +37,7 @@ describe Itiel::Job do
         job.step @object
       end
 
-      instanced_job.expects(:step).with(@object)
+      mock(instanced_job).step(@object)
       instanced_job.run!
     end
   end
@@ -48,19 +48,19 @@ describe Itiel::Job do
       @source = mock()
       @destination = mock()
       @stream = mock()
-      @source.expects(:output).at_least_once.returns(@stream)
-      @destination.expects(:input=).with(@stream).once
+      stub(@source).output { @stream }
+      mock(@destination).input=(@stream)
     end
 
     describe "@source => @destination" do
-      it "hardwires the @destinaion's input with the @source output" do
+      it "hardwires the @destination's input with the @source output" do
         @job.step @source => @destination
       end
     end
 
     describe "step @source; step @destination" do
-      it "hardwires the @destinaion's input with the @source output" do
-        @destination.expects(:output)
+      it "hardwires the @destination's input with the @source output" do
+        mock(@destination).output
         @job.step @source
         @job.step @destination
       end
@@ -69,7 +69,7 @@ describe Itiel::Job do
     describe "step @source => [ @destination, @second_destination ]" do
       it "hardwires both destination's inputs with the @source output" do
         @second_destination = mock()
-        @second_destination.expects(:input=).with(@stream).once
+        mock(@second_destination).input=(@stream)
 
         @job.step @source => [@destination, @second_destination]
       end

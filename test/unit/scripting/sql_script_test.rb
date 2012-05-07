@@ -9,36 +9,55 @@ describe Itiel::Scripting::SQLScript do
     @data_stream = { "c" => "v" }
   end
 
-  describe "no connection specified" do
-    it "raises RuntimeError" do
-      assert_raises RuntimeError do
-        @sql_script.input = @data_stream
+  describe :sanity_check do
+    describe "no connection specified" do
+      it "raises RuntimeError" do
+        assert_raises RuntimeError do
+          @sql_script.sanity_check
+        end
+      end
+    end
+
+    describe "connection is not Itiel::DB::Connection" do
+      before :each do
+        @sql_script.connection = Object.new
+      end
+
+      it "raises RuntimeError" do
+        assert_raises RuntimeError do
+          @sql_script.sanity_check
+        end
+      end
+    end
+
+    describe "No SQL sentence is given" do
+      before :each do
+        @sql_script.connection = Itiel::DB::Connection.new
+        @sql_script.sql = nil
+      end
+
+      it "raises RuntimeError" do
+        assert_raises RuntimeError do
+          @sql_script.sanity_check
+        end
       end
     end
   end
 
-  describe "connection is not Itiel::DB::Connection" do
+  describe :execute do
     before :each do
-      @sql_script.connection = Object.new
+  		@connection = mock
+      stub(@sql_script).sanity_check
+      stub(@sql_script).connection.stub!.connection_string.stub!
+      stub(@sql_script).sql.stub!
     end
 
-    it "raises RuntimeError" do
-      assert_raises RuntimeError do
-        @sql_script.input = @data_stream
-      end
-    end
-  end
+    it "Executes the specified SQL script with the given connection" do
+      mock(@sql_script.class::Executor).establish_connection @sql_script.connection.connection_string
+      mock(@sql_script.class::Executor).connection.mock!.execute @sql_script.sql
+      mock(@sql_script.class::Executor).clear_all_connections!
 
-  describe "a connection is set" do
-    before :each do
-      @sql_script.connection = legacy_connection
-      @sql_script.next_step = mock(:input=)
-    end
-
-    it "executes the sql script" do
-      @sql_script.input = @data_stream
-      # No idea how to test the execution of the script
-      # I need better ActiveRecord handling?
+      @sql_script.execute
     end
   end
 end

@@ -2,33 +2,49 @@ require 'test_helper'
 
 describe Itiel::Scripting::ChainedStep do
   before :each do
-    class Step
-      include Itiel::Scripting::ChainedStep
-    end
+    klass = Class.new
+    klass.send :include, Itiel::Scripting::ChainedStep
 
-    @step = Step.new
+    @step = klass.new
   end
 
-  it "raises an exception if no next_step is defined" do
-    @step.next_step = nil
-    assert_raises RuntimeError do
-      @step.input = []
+  describe :sanity_check do
+    describe "next_step is undefined" do
+      before :each do
+        @step.next_step = nil
+      end
+
+      it "raises an exception" do
+        assert_raises RuntimeError do
+          @step.input = []
+        end
+      end
+    end
+
+    describe "class does not implement execute" do
+      before :each do
+        @step.next_step = mock
+      end
+
+      it  "raises an excepiton if the class does not implement execute" do
+        assert_raises RuntimeError do
+          @step.execute
+        end
+      end
     end
   end
 
-  it "raises an excepiton if the class does not implement execute" do
-    @step.next_step = mock
-    assert_raises RuntimeError do
-      @step.input = []
+  describe :input= do
+    before :each do
+      stub(@step).sanity_check
+      @input_stream = mock
+      stub(@step).next_step.stub!
     end
-  end
 
-  it "Calls execute passing the input stream as the parameter and bypasses the input" do
-    data = mock
-    next_step = mock
-    next_step.expects(:input=).with(data).returns(true)
-    @step.next_step = next_step
-    @step.expects(:execute).returns(true)
-    @step.input = data
+    it "executes with input stream, sets output as next_step input" do
+      mock(@step).execute(@input_stream)
+    	mock(@step.next_step).input=(@input_stream)
+  		@step.input = @input_stream
+    end
   end
 end

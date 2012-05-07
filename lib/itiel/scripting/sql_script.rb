@@ -24,7 +24,6 @@ module Itiel
         Executor.clear_all_connections!
       end
 
-      private
       def sanity_check
         raise "No connection was specified to run the script" \
             unless connection

@@ -10,7 +10,7 @@ module Itiel
       end
 
       def sanity_check
-        raise "next_step is not defined" unless self.next_step
+        raise "next_step is undefined" unless self.next_step
       end
 
       def execute(*)

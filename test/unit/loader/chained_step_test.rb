@@ -2,11 +2,10 @@ require 'test_helper'
 
 describe Itiel::Loader::ChainedStep do
   before :each do
-    class Step
-      include Itiel::Loader::ChainedStep
-    end
+    klass = Class.new
+    klass.send :include, Itiel::Loader::ChainedStep
 
-    @step = Step.new
+    @step = klass.new
   end
 
   it "defines next_step" do
@@ -14,25 +13,27 @@ describe Itiel::Loader::ChainedStep do
     assert_respond_to @step, :next_step=
   end
 
-  it "raises an error if persist is not defined" do
-    assert_raises RuntimeError do
-      @step.persist([])
+  describe :persist do
+    it "raises an error if undefined" do
+      assert_raises RuntimeError do
+        @step.persist([])
+      end
     end
   end
 
-  it "calls persist with the stream received through input=" do
-    stream = []
-    @step.expects(:persist).with(stream)
-    @step.input = stream
-  end
+  describe :input= do
+    before :each do
+      @next_step = mock
+      @input = [ mock ]
+      @step.next_step = @next_step
+      mock(Itiel::Logger).log_received(@step, @input.size)
+      mock(Itiel::Logger).log_processed(@step, @input.size)
+    end
 
-  it "sends the stream to it's next step" do
-    stream = []
-    next_step = mock
-    next_step.expects(:input=).with(stream)
-
-    @step.next_step = next_step
-    @step.stubs(:persist)
-    @step.input = stream
+    it "calls persist with the stream received through input= and sends it to next_step" do
+      mock(@step).persist @input
+      mock(@next_step).input = @input
+      @step.input = @input
+    end
   end
 end
