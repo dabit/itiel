@@ -6,20 +6,14 @@ module Itiel
     # All classes including this module must define the in_batches method
     #
     module ChainedStep
-      attr_accessor :next_step, :batch_size
-
-      def initialize
-        self.batch_size ||= 20000
-      end
+      attr_accessor :next_step
 
       def start
-        self.in_batches do |rows|
-          self.next_step.input = rows
-        end
+        self.next_step.input = extract
       end
 
-      def in_batches
-        raise "in_batches is not implemented"
+      def extract
+        raise "extract is not implemented"
       end
     end
   end
