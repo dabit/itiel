@@ -19,22 +19,12 @@ module Itiel
       attr_accessor :file_name
 
       def initialize(file_name)
-        self.batch_size = 20000
         self.file_name = file_name
       end
 
-      def in_batches
-        lines = []
-        CSV.open(self.file_name, headers: true) do |csv|
-          csv.each do |f|
-            lines << f.to_hash
-            if ((csv.lineno - 1) % self.batch_size) == 0
-              yield lines
-              lines.clear
-            end
-          end
-        end
-        yield lines if lines.size > 0
+      def extract
+        lines = CSV.read(self.file_name, :headers => true)
+        lines.collect(&:to_hash)
       end
     end
   end
