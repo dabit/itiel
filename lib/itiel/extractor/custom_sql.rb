@@ -29,13 +29,9 @@ module Itiel
         self.script = args[0]
       end
 
-      def in_batches
-        db     = self.class.sequel_connection(connection)
-        offset = 0
-        while db[script].limit(self.batch_size, offset).count > 0
-          yield db[script].limit(self.batch_size, offset).all
-          offset += self.batch_size
-        end
+      def extract
+        db = self.class.sequel_connection(connection)
+        db[script].all
       end
     end
   end

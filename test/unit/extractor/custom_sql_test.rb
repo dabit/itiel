@@ -1,31 +1,20 @@
 require 'test_helper'
 
 describe Itiel::Extractor::CustomSQL do
-  before :each do
-    Itiel::Extractor::CustomSQL.connection_file_path = File.dirname(__FILE__) + '/../../support/config/database.yml'
+  describe "#extract" do
+    before :each do
 
-    @db = Itiel::Extractor::CustomSQL.sequel_connection(:test)
-    @db.run("CREATE TABLE t (id PRIMARY_KEY, name TEXT)")
-    table = @db[:t]
-
-    50.times do |i|
-      table.insert(:name => "name #{i}")
+      @step = Itiel::Extractor::CustomSQL.new 'SCRIPT'
+      @step.connection = :test
     end
 
-    @custom_sql            = Itiel::Extractor::CustomSQL.new
-    @custom_sql.connection = :test
-  end
+    it "Runs a script on the database and returns its results to the stream" do
+      result = mock
+      stub(result).all.stub!
+      db = { 'SCRIPT' => result }
+      stub(Itiel::Extractor::CustomSQL).sequel_connection(:test).returns db
 
-  after :each do
-    File.unlink('test.db') if File.exists?('test.db')
-  end
-
-  it "returns the result of the query in batches" do
-    @custom_sql.script = 'SELECT * FROM t'
-    @custom_sql.batch_size = 10
-    @custom_sql.in_batches do |y|
-      assert_equal Array, y.class
-      assert_equal 10, y.length
+      assert_equal @step.extract, result.all
     end
   end
 end
