@@ -32,6 +32,7 @@ module Itiel
     autoload :ChainedStep           , 'itiel/scripting/chained_step'
     autoload :InputOutputBehavior   , 'itiel/scripting/input_output_behavior'
     autoload :SQLScript             , 'itiel/scripting/sql_script'
+  	autoload :RubyScript            , 'itiel/scripting/ruby_script'
   end
 
   module Transformation
