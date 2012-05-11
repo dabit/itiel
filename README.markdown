@@ -2,76 +2,12 @@
 
 [![Build Status](https://secure.travis-ci.org/dabit/itiel.png?branch=master)](http://travis-ci.org/dabit/itiel)
 
-# WARNING THIS README IS VERY OUTDATED AS I AM WORKING IN A DIFFERENT WAY TO RUN JOBS
-
-
 Hopefully, it will be an awesome Framework to do ETL with Ruby. It
 should only work with *Ruby 1.9*.
 
-Right now, this works:
+[A working example](https://github.com/railsmx/rails-mx-blog/blob/master/itiel/posts.rb)
 
-    require 'itiel'
-
-    #
-    # source.csv
-    #
-    # id,name,state
-    # 1,john,active
-    # 2,ruby,active
-    # 3,rails,inactive
-    # 4,pete,active
-
-    @source       = Itiel::Extractor::CSVFile.new('source.csv')
-    @destination  = Itiel::Loader::CSVFile.new('destination.csv')
-    @destination2 = Itiel::Loader::CSVFile.new('destination2.csv')
-
-    @sorter       = Itiel::Transformation::SingleColumnSort.new("name")
-    @add_constant = Itiel::Transformation::ConstantField.new("constant" => "value")
-
-    #
-    # The define way
-    #
-
-    job_object = Itiel::Job.define do |job|
-      job.step @source       => @add_constant
-      job.step @add_constant => @sorter
-      job.step @sorter       => [ @destination, @destination2 ]
-    end
-
-    job_object.run!
-
-    #
-    # The run way
-    #
-
-    Itiel::Job.run do |job|
-      job.step @source       => @add_constant
-      job.step @add_constant => @sorter
-      job.step @sorter       => [ @destination, @destination2 ]
-    end
-
-    #
-    # destination.csv
-    #
-    # id,name,state,constant
-    # 1,john,active,value
-    # 4,pete,active,value
-    # 3,rails,inactive,value
-    # 2,ruby,active,value
-
-    #
-    # You can also use it with a variant for both cases
-    # where the steps are specified in order
-    #
-
-    Itiel::Job.run do |job|
-      job.step @source
-      job.step @add_constant
-      job.step @sorter
-      job.step @destination
-    end
-
-## TODO
+# TODO: Everything I want it to be, below:
 
 ### Define the Itiel project structure
 
