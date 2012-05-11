@@ -12,6 +12,8 @@ module Itiel
       module InstanceMethods
         attr_accessor :next_step
 
+        alias :>> :next_step=
+
         def input=(input_stream)
           Itiel::Logger.log_received(self, input_stream.size)
           persist(input_stream)

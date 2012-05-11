@@ -13,6 +13,8 @@ module Itiel
     module ChainedStep
       attr_accessor :next_step
 
+      alias :>> :next_step=
+
       def input=(stream)
         next_step.input = transform!(stream)
       end

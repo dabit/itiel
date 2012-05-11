@@ -3,6 +3,8 @@ module Itiel
     module ChainedStep
       attr_accessor :next_step
 
+      alias :>> :next_step=
+
       def input=(input_stream)
         sanity_check
         self.execute(input_stream)

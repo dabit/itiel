@@ -8,6 +8,8 @@ module Itiel
     module ChainedStep
       attr_accessor :next_step
 
+      alias :>> :next_step=
+
       def start
         self.next_step.input = extract
       end

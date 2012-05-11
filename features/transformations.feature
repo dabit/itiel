@@ -18,12 +18,11 @@ Feature: Transformations
     # @constant_column = Itiel::Transformation::ConstantColumn.new("constant" => "value")
     Given I create a Transformation::ConstantColumn object with "constant" => "value"
 
-    # @source.next_step          = @constant_column
-    # @constant_column.next_step = @destination
+    # @source >> @constant_column >> @destination
     And the data flows in the following direction:
-      | @source         |
+      | @source          |
       | @constant_column |
-      | @destination    |
+      | @destination     |
 
     # @source.start
     When I start the source
