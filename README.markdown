@@ -40,10 +40,6 @@ Use thor?
 
     rake itiel:run
 
-### Redis
-
-Don't know exactly where or how we need it, but Redis is awesome
-
 ### Mongo
 
 Picture yourself migrating form SQL to Mongo
