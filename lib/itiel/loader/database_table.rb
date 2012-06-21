@@ -1,23 +1,34 @@
-require 'active_record'
-
 module Itiel
   module Loader
+    #
+    # Loads the stream into a database table.
+    #
+    # Usage:
+    #
+    #     @loader = Itiel::Loader::DatabaseTable.new :connection, "table_name"
+    #
     class DatabaseTable
       include ChainedStep
       include Itiel::Nameable
+      include Itiel::DB::SQLConnectable
 
-      def initialize(connection)
-        Model.table_name = self.class.name.demodulize.tableize
-        Model.establish_connection connection.connection_string
+      attr_accessor :table_name
+
+      def initialize(connection, table_name)
+        self.connection = connection
+        self.table_name = table_name
       end
 
       def persist(input_stream)
         input_stream.each do |element|
-          Model.create!(element)
+          table.insert(element)
         end
       end
 
-      class Model < ActiveRecord::Base; end
+      def table
+        db = self.class.sequel_connection(connection)
+        db[table_name.to_sym]
+      end
     end
   end
 end

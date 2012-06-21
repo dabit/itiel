@@ -1,7 +1,4 @@
 require 'test_helper'
-require 'support/source_schema'
-require 'support/destination_schema'
-require 'support/example'
 
 describe Itiel::Scripting::SQLScript do
   before :each do
@@ -46,7 +43,7 @@ describe Itiel::Scripting::SQLScript do
 
   describe :execute do
     before :each do
-  		@connection = mock
+      @connection = mock
       stub(@sql_script).sanity_check
       stub(@sql_script).connection.stub!.connection_string.stub!
       stub(@sql_script).sql.stub!

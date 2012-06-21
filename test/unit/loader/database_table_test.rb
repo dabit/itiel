@@ -2,34 +2,27 @@ require 'test_helper'
 
 describe Itiel::Loader::DatabaseTable do
   before(:each) do
-    @output = Destination::ShippedOrders.new(destination_connection)
+    @output = Itiel::Loader::DatabaseTable.new :test, "users"
     @input = [
-				{
-					"id"   => "1",
-					"name" => "Some Name"
-				},
-				{
-					"id"   => "2",
-					"name" => "Some Other Name"
-				},
+        {
+          "id"   => "1",
+          "name" => "Some Name"
+        },
+        {
+          "id"   => "2",
+          "name" => "Some Other Name"
+        },
     ]
-
-		@output.persist(@input)
-    @results = Destination::ShippedOrders::Model.all
   end
 
-  after(:each) do
-    Destination::ShippedOrders::Model.delete_all
-  end
+  it "inserts a record for each row" do
+    table = mock
+    stub(@output).table { table }
 
-  it "stores the input on the specified table" do
-    assert_equal 2, @results.size
-  end
+  	@input.each do |row|
+  		mock(table).insert row
+  	end
 
-  it "creates a record for each row" do
-    @input.each do |row|
-      result = Destination::ShippedOrders::Model.where(:name => row["name"]).first
-      assert_equal row["name"], result.name
-    end
+    @output.persist(@input)
   end
 end
