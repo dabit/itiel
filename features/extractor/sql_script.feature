@@ -8,7 +8,7 @@ Feature: Extract rows from a database using a custom SQL script
        | 2  | A footbal anecdote | John Miller     |
        | 3  | Historical music   | John Mellencamp |
 
-     When I create a Itiel::Extractor::CustomSQL object with the query:
+     When I create a Itiel::Extract::CustomSQL object with the query:
      """
        SELECT * FROM blogposts WHERE id = 3;
      """

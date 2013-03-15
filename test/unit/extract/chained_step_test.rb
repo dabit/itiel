@@ -1,9 +1,9 @@
 require 'test_helper'
 
-describe Itiel::Extractor::ChainedStep do
+describe Itiel::Extract::ChainedStep do
   before :each do
     klass = Class.new
-    klass.send(:include, Itiel::Extractor::ChainedStep)
+    klass.send(:include, Itiel::Extract::ChainedStep)
     @step = klass.new
 
     @stream = mock

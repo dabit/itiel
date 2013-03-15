@@ -8,7 +8,7 @@ When /^I load the source into the destination$/ do
 end
 
 Then /^the "([^"]*)" table should have (\d+) records$/ do |table_name, record_count|
-  Itiel::Extractor::CustomSQL.connection_file_path = @database_config_path
+  Itiel::Extract::CustomSQL.connection_file_path = @database_config_path
 
-  Itiel::Extractor::CustomSQL.sequel_connection(:test)[table_name.to_sym].count.should == record_count.to_i
+  Itiel::Extract::CustomSQL.sequel_connection(:test)[table_name.to_sym].count.should == record_count.to_i
 end

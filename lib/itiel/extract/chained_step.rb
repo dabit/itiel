@@ -1,5 +1,5 @@
 module Itiel
-  module Extractor
+  module Extract
     #
     # Defines how the initial extractors behave
     #

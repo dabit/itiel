@@ -12,14 +12,14 @@ module Itiel
     autoload :SQLConnectable        , 'itiel/db/sql_connectable.rb'
   end
 
-  module Extractor
-    autoload :CSVFile               , 'itiel/extractor/csv_file'
-    autoload :ChainedOutputBehavior , 'itiel/extractor/chained_output_behavior'
-    autoload :ChainedStep           , 'itiel/extractor/chained_step'
-    autoload :CustomSQL             , 'itiel/extractor/custom_sql'
-    autoload :DatabaseConnection    , 'itiel/extractor/database_connection'
-    autoload :DatabaseTable         , 'itiel/extractor/database_table'
-    autoload :InputOutputBehavior   , 'itiel/extractor/input_output_behavior'
+  module Extract
+    autoload :CSVFile               , 'itiel/extract/csv_file'
+    autoload :ChainedOutputBehavior , 'itiel/extract/chained_output_behavior'
+    autoload :ChainedStep           , 'itiel/extract/chained_step'
+    autoload :CustomSQL             , 'itiel/extract/custom_sql'
+    autoload :DatabaseConnection    , 'itiel/extract/database_connection'
+    autoload :DatabaseTable         , 'itiel/extract/database_table'
+    autoload :InputOutputBehavior   , 'itiel/extract/input_output_behavior'
   end
 
   module Loader
@@ -32,7 +32,7 @@ module Itiel
     autoload :ChainedStep           , 'itiel/scripting/chained_step'
     autoload :InputOutputBehavior   , 'itiel/scripting/input_output_behavior'
     autoload :SQLScript             , 'itiel/scripting/sql_script'
-  	autoload :RubyScript            , 'itiel/scripting/ruby_script'
+    autoload :RubyScript            , 'itiel/scripting/ruby_script'
   end
 
   module Transformation

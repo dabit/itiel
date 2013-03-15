@@ -1,7 +1,7 @@
 require 'sequel'
 
 module Itiel
-  module Extractor
+  module Extract
     #
     # Creates a stream from the specified SQL query.
     # Connection must be defined on a file that's on
@@ -9,14 +9,14 @@ module Itiel
     #
     # Usage:
     #
-    #     @custom_sql = Itiel::Extractor::CustomSQL.new
+    #     @custom_sql = Itiel::Extract::CustomSQL.new
     #     @custom_sql.connection = :test
     #     @custom_sql.script = 'SELECT * FROM some_table'
     #
     #
     # You can set a different path for the config file at class level
     #
-    #     Itiel::Extractor::CustomSQL.connection_file_path = 'path_to_my_config/database.yml'
+    #     Itiel::Extract::CustomSQL.connection_file_path = 'path_to_my_config/database.yml'
     #
     class CustomSQL
       include ChainedStep

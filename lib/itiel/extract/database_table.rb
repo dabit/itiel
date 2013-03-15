@@ -1,12 +1,12 @@
 module Itiel
-  module Extractor
+  module Extract
     #
     # Extracts all the contents from a Database table into the stream
     # and passes it on to it's next_step
     #
     # Usage:
     #
-    #     @extractor            = Itiel::Extractor::DatabaseTable.new
+    #     @extractor            = Itiel::Extract::DatabaseTable.new
     #     @extractor.connection = :test
     #     @extractor.table_name = 'test_table'
     #

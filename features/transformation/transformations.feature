@@ -8,7 +8,7 @@ Feature: Transformations
       | 3  | rails | inactive |
       | 4  | pete  | active   |
 
-    # @source = Itiel::Extractors::CSVFile.new('source.csv')
+    # @source = Itiel::Extracts::CSVFile.new('source.csv')
     And I create a Extractor::CSVFile object with "source.csv"
     # @destination  = Itiel::Loaders::CSVFile.new('destination.csv')
     And I create a Loader::CSVFile object with "destination.csv"

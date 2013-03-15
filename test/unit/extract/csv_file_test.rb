@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Extractor::CSVFile do
+describe Itiel::Extract::CSVFile do
   before :each do
-    @step = Itiel::Extractor::CSVFile.new 'FILENAME'
+    @step = Itiel::Extract::CSVFile.new 'FILENAME'
   end
 
   describe "#extract" do

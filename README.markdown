@@ -54,8 +54,8 @@ Some on my mind:
     Itiel::Loaders::HTTPRequest
     Itiel::Loaders::MongoDBDocument
     Itiel::Scripting::ExecuteInSystem
-    Itiel::Extractors::HTTP
-    Itiel::Extractors::MongoDBDocument
+    Itiel::Extracts::HTTP
+    Itiel::Extracts::MongoDBDocument
     Itiel::Transformations::CustomSort
     Itiel::Transformations::MapValues
     Itiel::Transformations::IfNil

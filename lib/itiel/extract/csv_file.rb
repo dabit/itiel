@@ -1,14 +1,14 @@
 require 'csv'
 
 module Itiel
-  module Extractor
+  module Extract
     #
     # Extracts all specified CSV file rows and sends it in batches to
     # its next step
     #
     # Usage:
     #
-    #    csv_file            = Itiel::Extractor::CSVFile.new('FileName.csv')
+    #    csv_file            = Itiel::Extract::CSVFile.new('FileName.csv')
     #    csv_file.batch_size = 15
     #    csv.file.start
     #
