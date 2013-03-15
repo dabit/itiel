@@ -53,7 +53,7 @@ Some on my mind:
     Itiel::Loads::FTP
     Itiel::Loads::HTTPRequest
     Itiel::Loads::MongoDBDocument
-    Itiel::Scripting::ExecuteInSystem
+    Itiel::Script::ExecuteInSystem
     Itiel::Extracts::HTTP
     Itiel::Extracts::MongoDBDocument
     Itiel::Transforms::CustomSort

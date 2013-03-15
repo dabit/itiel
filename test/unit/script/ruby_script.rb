@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Scripting::RubyScript do
+describe Itiel::Script::RubyScript do
   before :each do
-    @step = Itiel::Scripting::RubyScript.new do |row|
+    @step = Itiel::Script::RubyScript.new do |row|
       row["data"] = "bar"
     end
   end

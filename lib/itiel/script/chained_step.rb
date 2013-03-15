@@ -1,5 +1,5 @@
 module Itiel
-  module Scripting
+  module Script
     module ChainedStep
       attr_accessor :next_step
 

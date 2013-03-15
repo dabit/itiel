@@ -1,7 +1,7 @@
 require 'active_record'
 
 module Itiel
-  module Scripting
+  module Script
     #
     # Executes a SQL script or command on the specified
     # connection

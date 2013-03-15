@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Scripting::SQLScript do
+describe Itiel::Script::SQLScript do
   before :each do
-    @sql_script = Itiel::Scripting::SQLScript.new("DELETE FROM orders")
+    @sql_script = Itiel::Script::SQLScript.new("DELETE FROM orders")
     @data_stream = { "c" => "v" }
   end
 

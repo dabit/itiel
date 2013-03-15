@@ -1,5 +1,5 @@
 module Itiel
-  module Scripting
+  module Script
     #
     # Process the stream with ruby
     #
@@ -7,7 +7,7 @@ module Itiel
     #
     # Usage:
     #
-    #   Itiel::Scripting::RubyScript.new do |row|
+    #   Itiel::Script::RubyScript.new do |row|
     #     row["slug"] = row["title"]
     #   end
     #

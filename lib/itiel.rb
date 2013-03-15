@@ -28,11 +28,11 @@ module Itiel
     autoload :DatabaseTable         , 'itiel/load/database_table'
   end
 
-  module Scripting
-    autoload :ChainedStep           , 'itiel/scripting/chained_step'
-    autoload :InputOutputBehavior   , 'itiel/scripting/input_output_behavior'
-    autoload :SQLScript             , 'itiel/scripting/sql_script'
-    autoload :RubyScript            , 'itiel/scripting/ruby_script'
+  module Script
+    autoload :ChainedStep           , 'itiel/script/chained_step'
+    autoload :InputOutputBehavior   , 'itiel/script/input_output_behavior'
+    autoload :SQLScript             , 'itiel/script/sql_script'
+    autoload :RubyScript            , 'itiel/script/ruby_script'
   end
 
   module Transform

@@ -7,7 +7,7 @@ Feature: Ruby scripting
        | 2  | A football anecdote | John Miller     |
        | 3  | Historical music    | John Mellencamp |
 
-    And I create a Itiel::Scripting::RubyScript object with the following block of code:
+    And I create a Itiel::Script::RubyScript object with the following block of code:
       """
         row["slug"] = row["title"].parameterize
       """
