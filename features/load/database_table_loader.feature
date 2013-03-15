@@ -1,7 +1,7 @@
 Feature: Load data into a database table
 
   Background:
-    Given a blogpost database table
+    Given a blogposts database table
     And a "source.csv" file with the following rows:
       | id | title                 | author          |
       | 1  | Pride and Prejudice   | Jane Austen     |
