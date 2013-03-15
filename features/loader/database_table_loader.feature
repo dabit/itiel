@@ -11,7 +11,7 @@ Feature: Load data into a database table
 
     # @source = Itiel::Extracts::CSVFile.new('source.csv')
     And I create a Extractor::CSVFile object with "source.csv"
-    # @destination  = Itiel::Loader::DatabaseTable.new :test, "blogposts"
+    # @destination  = Itiel::Load::DatabaseTable.new :test, "blogposts"
     And I create a Loader::DatabaseTable object for the "blogposts" table
 
   @database

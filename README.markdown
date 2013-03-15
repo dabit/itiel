@@ -50,9 +50,9 @@ Some on my mind:
 
     Itiel::Joins::DatabaseTable
     Itiel::Lookups::DatabaseTable
-    Itiel::Loaders::FTP
-    Itiel::Loaders::HTTPRequest
-    Itiel::Loaders::MongoDBDocument
+    Itiel::Loads::FTP
+    Itiel::Loads::HTTPRequest
+    Itiel::Loads::MongoDBDocument
     Itiel::Scripting::ExecuteInSystem
     Itiel::Extracts::HTTP
     Itiel::Extracts::MongoDBDocument

@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Loader::DatabaseTable do
+describe Itiel::Load::DatabaseTable do
   before(:each) do
-    @output = Itiel::Loader::DatabaseTable.new :test, "users"
+    @output = Itiel::Load::DatabaseTable.new :test, "users"
     @input = [
         {
           "id"   => "1",

@@ -1,9 +1,9 @@
 require 'test_helper'
 
-describe Itiel::Loader::ChainedStep do
+describe Itiel::Load::ChainedStep do
   before :each do
     klass = Class.new
-    klass.send :include, Itiel::Loader::ChainedStep
+    klass.send :include, Itiel::Load::ChainedStep
 
     @step = klass.new
   end

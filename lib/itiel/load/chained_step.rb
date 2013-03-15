@@ -1,5 +1,5 @@
 module Itiel
-  module Loader
+  module Load
     #
     # This module defines the input and output behavior for Loader steps
     #

@@ -22,10 +22,10 @@ module Itiel
     autoload :InputOutputBehavior   , 'itiel/extract/input_output_behavior'
   end
 
-  module Loader
-    autoload :CSVFile               , 'itiel/loader/csv_file'
-    autoload :ChainedStep           , 'itiel/loader/chained_step'
-    autoload :DatabaseTable         , 'itiel/loader/database_table'
+  module Load
+    autoload :CSVFile               , 'itiel/load/csv_file'
+    autoload :ChainedStep           , 'itiel/load/chained_step'
+    autoload :DatabaseTable         , 'itiel/load/database_table'
   end
 
   module Scripting

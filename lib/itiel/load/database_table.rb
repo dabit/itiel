@@ -1,11 +1,11 @@
 module Itiel
-  module Loader
+  module Load
     #
     # Loads the stream into a database table.
     #
     # Usage:
     #
-    #     @loader = Itiel::Loader::DatabaseTable.new :connection, "table_name"
+    #     @loader = Itiel::Load::DatabaseTable.new :connection, "table_name"
     #
     class DatabaseTable
       include ChainedStep

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe Itiel::Loader::CSVFile do
+describe Itiel::Load::CSVFile do
   before :each do
     @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
     File.unlink(@filename) if File.exist?(@filename)
@@ -22,7 +22,7 @@ describe Itiel::Loader::CSVFile do
         [ "2"  , "Subject Name" ]
     ]
 
-    @csv_output = Itiel::Loader::CSVFile.new(@filename)
+    @csv_output = Itiel::Load::CSVFile.new(@filename)
   end
 
   describe "the file does not exist" do
@@ -50,7 +50,7 @@ describe Itiel::Loader::CSVFile do
 
   describe "use append = false" do
     before do
-      @csv_output = Itiel::Loader::CSVFile.new(@filename, false)
+      @csv_output = Itiel::Load::CSVFile.new(@filename, false)
     end
 
     describe "the file already exists" do

@@ -1,5 +1,5 @@
 Given /^I create a Loader::DatabaseTable object for the "([^"]*)" table$/ do |arg1|
-  @destination  = Itiel::Loader::DatabaseTable.new :test, "blogposts"
+  @destination  = Itiel::Load::DatabaseTable.new :test, "blogposts"
 end
 
 When /^I load the source into the destination$/ do

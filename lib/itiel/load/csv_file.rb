@@ -1,13 +1,13 @@
 require 'csv'
 
 module Itiel
-  module Loader
+  module Load
     #
     # Loads the data stream into a CSV file
     #
     # Usage:
     #
-    #     @csv_file = Itiel::Loader::CSVFile.new('filename.csv')
+    #     @csv_file = Itiel::Load::CSVFile.new('filename.csv')
     #     @csv_file.input = []
     #
     class CSVFile
