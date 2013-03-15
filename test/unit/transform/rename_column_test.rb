@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Transformation::RenameColumn do
+describe Itiel::Transform::RenameColumn do
   before :each do
-    @transformer = Itiel::Transformation::RenameColumn.new(
+    @transformer = Itiel::Transform::RenameColumn.new(
         "order_id" => "id",
         "name" => "client_name"
     )

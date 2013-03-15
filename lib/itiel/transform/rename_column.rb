@@ -1,11 +1,11 @@
 module Itiel
-  module Transformation
+  module Transform
     #
     # Renames a column in the data stream
     #
     # Usage:
     #
-    #     @transformer = Itiel::Transformation::RenameColumn.new("order_id" => "id")
+    #     @transformer = Itiel::Transform::RenameColumn.new("order_id" => "id")
     #
     # This would rename the order_id column in the input stream to id
     #

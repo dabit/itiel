@@ -1,9 +1,9 @@
 require 'test_helper'
 
-describe Itiel::Transformation::ChainedStep do
+describe Itiel::Transform::ChainedStep do
   before :each do
     class Step
-      include Itiel::Transformation::ChainedStep
+      include Itiel::Transform::ChainedStep
     end
 
     @step = Step.new

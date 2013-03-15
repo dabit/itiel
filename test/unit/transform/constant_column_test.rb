@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe Itiel::Transformation::ConstantColumn do
+describe Itiel::Transform::ConstantColumn do
   before :each do
     @input = [
       	{ "id" => "1" },
@@ -12,7 +12,7 @@ describe Itiel::Transformation::ConstantColumn do
       	{ "id"     => "2", "append" => "value" }
     ]
 
-    @transformation = Itiel::Transformation::ConstantColumn.new("append" => "value")
+    @transformation = Itiel::Transform::ConstantColumn.new("append" => "value")
   end
 
   it "appends a field with a constant value to the stream" do

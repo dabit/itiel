@@ -1,11 +1,11 @@
 module Itiel
-  module Transformation
+  module Transform
     #
     # Maps a field value to different values
     #
     # Usage:
     #
-    #      @transformation = Itiel::Transformation::MapValues.new(
+    #      @transformation = Itiel::Transform::MapValues.new(
     #        {
     #          "active" => { true => "yes", false => "no" }
     #        }

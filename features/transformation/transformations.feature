@@ -15,7 +15,7 @@ Feature: Transformations
 
 
   Scenario: Append a constant value column to the original stream
-    # @constant_column = Itiel::Transformation::ConstantColumn.new("constant" => "value")
+    # @constant_column = Itiel::Transform::ConstantColumn.new("constant" => "value")
     Given I create a Transformation::ConstantColumn object with "constant" => "value"
 
     # @source >> @constant_column >> @destination
@@ -35,7 +35,7 @@ Feature: Transformations
       | 4  | pete  | active   | value    |
 
   Scenario: Map Values in a column
-    # @map_values = Itiel::Transformation::MapValues.new("state" => { "active" => 1, "inactive" => 0 })
+    # @map_values = Itiel::Transform::MapValues.new("state" => { "active" => 1, "inactive" => 0 })
     Given I create a Transformation::MapValues object for the state column to integer
 
     # @source.next_step     = @map_values
@@ -57,7 +57,7 @@ Feature: Transformations
 
 
   Scenario: Rename an existing column
-    # @rename_column = Itiel::Transformation::RenameColumn.new("state" => "status")
+    # @rename_column = Itiel::Transform::RenameColumn.new("state" => "status")
     Given I create a Transformation::RenameColumn object from "state" to "status"
 
     # @source.next_step     = @rename_column
@@ -78,7 +78,7 @@ Feature: Transformations
       | 4  | pete  | active   |
 
   Scenario: Select specific columns from the stream
-    # @select_column = Itiel::Transformation::SelectColumn.new("id", "state")
+    # @select_column = Itiel::Transform::SelectColumn.new("id", "state")
     Given I create a Transformation::SelectColumn object with "id" and "state"
 
     # @source.next_step     = @select_column
@@ -99,7 +99,7 @@ Feature: Transformations
       | 4  | active   |
 
   Scenario: Create a new column with the result of a calculation with other columns
-    # @calculated_column = Itiel::Transformation::CalculatedColumn.new 'new_id' do |columns|
+    # @calculated_column = Itiel::Transform::CalculatedColumn.new 'new_id' do |columns|
     #   columns['id'].to_i * 3
     # end
     Given I create a Transformation::CalculatedColumn object that multiplies "id" times 3

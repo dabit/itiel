@@ -56,9 +56,9 @@ Some on my mind:
     Itiel::Scripting::ExecuteInSystem
     Itiel::Extracts::HTTP
     Itiel::Extracts::MongoDBDocument
-    Itiel::Transformations::CustomSort
-    Itiel::Transformations::MapValues
-    Itiel::Transformations::IfNil
+    Itiel::Transforms::CustomSort
+    Itiel::Transforms::MapValues
+    Itiel::Transforms::IfNil
 
 Just ideas, I have nothing on how to implement most of them
 

@@ -1,5 +1,5 @@
 module Itiel
-  module Transformation
+  module Transform
     #
     # This class allow us to create a new column or replace the current value of a column
     # by the result of the execution of a block.

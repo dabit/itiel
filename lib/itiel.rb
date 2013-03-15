@@ -35,13 +35,13 @@ module Itiel
     autoload :RubyScript            , 'itiel/scripting/ruby_script'
   end
 
-  module Transformation
-    autoload :CalculatedColumn      , 'itiel/transformation/calculated_column'
-    autoload :ChainedStep           , 'itiel/transformation/chained_step'
-    autoload :ConstantColumn        , 'itiel/transformation/constant_column'
-    autoload :RenameColumn          , 'itiel/transformation/rename_column'
-    autoload :SelectColumn          , 'itiel/transformation/select_column'
-    autoload :InputOutputBehavior   , 'itiel/transformation/input_output_behavior'
-    autoload :MapValues             , 'itiel/transformation/map_values'
+  module Transform
+    autoload :CalculatedColumn      , 'itiel/transform/calculated_column'
+    autoload :ChainedStep           , 'itiel/transform/chained_step'
+    autoload :ConstantColumn        , 'itiel/transform/constant_column'
+    autoload :RenameColumn          , 'itiel/transform/rename_column'
+    autoload :SelectColumn          , 'itiel/transform/select_column'
+    autoload :InputOutputBehavior   , 'itiel/transform/input_output_behavior'
+    autoload :MapValues             , 'itiel/transform/map_values'
   end
 end

@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Transformation::SelectColumn do
+describe Itiel::Transform::SelectColumn do
   before :each do
-    @transformer = Itiel::Transformation::SelectColumn.new("order_id", "name")
+    @transformer = Itiel::Transform::SelectColumn.new("order_id", "name")
     @input = [
          { "order_id" => 1 , "name" => "bucket"        , "price" => 1.5 },
          { "order_id" => 2 , "name" => "second bucket" , "price" => 3   }

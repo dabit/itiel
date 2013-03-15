@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe Itiel::Transformation::MapValues do
+describe Itiel::Transform::MapValues do
   before :each do
     @input = [
       { "id" => 1 , "active" => true  } ,
@@ -12,7 +12,7 @@ describe Itiel::Transformation::MapValues do
       { "id" => 2 , "active" => "no"  }
     ]
 
-    @transformation = Itiel::Transformation::MapValues.new(
+    @transformation = Itiel::Transform::MapValues.new(
       {
         "active" => { true => "yes", false => "no" }
       }

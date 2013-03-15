@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe Itiel::Transformation::CalculatedColumn do
+describe Itiel::Transform::CalculatedColumn do
   before(:each) do
-    @transformer = Itiel::Transformation::CalculatedColumn.new "total" do |columns|
+    @transformer = Itiel::Transform::CalculatedColumn.new "total" do |columns|
       columns['price'] * columns['quantity']
     end
 

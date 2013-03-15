@@ -1,11 +1,11 @@
 module Itiel
-  module Transformation
+  module Transform
     #
     # This transformation only selects specific columns on the data stream
     #
     # Usage:
     #
-    #     @transformer = Itiel::Transformation::SelectColumn.new("order_id", "name")
+    #     @transformer = Itiel::Transform::SelectColumn.new("order_id", "name")
     #
     # In the example, the output stream would only have the order_id and the name column
     # All other columns will be ignored
