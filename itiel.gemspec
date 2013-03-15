@@ -23,9 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'activerecord' , '>= 3'
   s.add_dependency 'sequel'
 
-  s.add_development_dependency 'autotest'
-  s.add_development_dependency 'autotest-growl'
-  s.add_development_dependency 'autotest-fsevent'
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
