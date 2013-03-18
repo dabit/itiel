@@ -30,7 +30,9 @@ module Itiel
 
   module Lookup
     autoload :DatabaseTable         , 'itiel/lookup/database_table'
+    autoload :CSVFile               , 'itiel/lookup/csv_file'
     autoload :ChainedStep           , 'itiel/lookup/chained_step'
+    autoload :HashLookup            , 'itiel/lookup/hash_lookup'
   end
 
   module Script

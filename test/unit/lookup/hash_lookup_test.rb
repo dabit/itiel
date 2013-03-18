@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe Itiel::Lookup::DatabaseTable do
+describe Itiel::Lookup::HashLookup do
   before(:each) do
     @input = [
       {
@@ -53,7 +53,11 @@ describe Itiel::Lookup::DatabaseTable do
       }
     ]
 
-    @lookup = Itiel::Lookup::DatabaseTable.new
+    class FooLookup
+      include Itiel::Lookup::HashLookup
+    end
+
+    @lookup = FooLookup.new
     @lookup.lookup_columns = { "author" => "name" }
     @lookup.joined_columns = { "id" => "author_id", "active" => "active" }
   end
