@@ -3,7 +3,7 @@ module Itiel
     #
     # This module defines the input and output behavior for Loader steps
     #
-    # Whenever an Output receives input, it calls persist! and then
+    # Whenever the instance receives input, it calls persist! and then
     # wires the input and the output
     #
     # All the clasess in Itiel::Output should implement persist!

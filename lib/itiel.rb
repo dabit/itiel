@@ -28,6 +28,11 @@ module Itiel
     autoload :DatabaseTable         , 'itiel/load/database_table'
   end
 
+  module Lookup
+    autoload :DatabaseTable         , 'itiel/lookup/database_table'
+    autoload :ChainedStep           , 'itiel/lookup/chained_step'
+  end
+
   module Script
     autoload :ChainedStep           , 'itiel/script/chained_step'
     autoload :InputOutputBehavior   , 'itiel/script/input_output_behavior'
