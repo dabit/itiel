@@ -7,6 +7,12 @@ should only work with *Ruby 1.9*.
 
 [A working example](https://github.com/railsmx/rails-mx-blog/blob/master/itiel/posts.rb)
 
+# This README is work in progress
+
+You should not trust it, until I clean it up.
+
+For better examples and documentation, refer to the *features* folder.
+
 # TODO: Everything I want it to be, below:
 
 ### Define the Itiel project structure
