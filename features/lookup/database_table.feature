@@ -19,20 +19,20 @@ Feature: Lookup data from a Database Table
     # @database_table.table_name = 'blogposts'
     And I create a Itiel::Extract::DatabaseTable object for the 'blogposts' table
 
-    # @database_lookup = Itiel::Lookup::DatabaseTable.new
-    # @database_lookup.connection    = :test
-    # @database_lookup.table_name    = 'author'
+    # @lookup = Itiel::Lookup::DatabaseTable.new
+    # @lookup.connection    = :test
+    # @lookup.table_name    = 'author'
     And I create a Itiel::Lookup::DatabaseTable object for the "authors"
 
-    # @database_lookup.lookup_columns = { :author => :name }
+    # @lookup.lookup_columns = { :author => :name }
     And the lookup joins the "author" column in the source with the "name" column in the lookup stream
 
-    # @database_lookup.joined_columns = { :id => :author_id }
+    # @lookup.joined_columns = { :id => :author_id }
     And the lookup appends the "id" column on the lookup stream to the source as "author_id"
 
     And the data flows in the following direction:
       | @database_table  |
-      | @database_lookup |
+      | @lookup |
 
     When I start the source
 
