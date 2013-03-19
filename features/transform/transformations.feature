@@ -120,3 +120,27 @@ Feature: Transformations
       | 2  | ruby  | active   | 6      |
       | 3  | rails | inactive | 9      |
       | 4  | pete  | active   | 12     |
+
+  Scenario: Create multiple columns with the result of a calculation with other columns
+
+    # @calculated_columns = Itiel::Transform::CalculatedColumns.new do |row|
+    #   name_state = "#{row['name']}-#{row['state']}"
+    #   id_name    = "#{row['id']}-#{row['name']}"
+    #   { 'name_state' => name_state, 'id_name' => id_name }
+    # end
+    Given I create a Transformation::CalculatedColumns object
+
+    And the data flows in the following direction:
+      | @source             |
+      | @calculated_columns |
+      | @destination        |
+
+    # @source.start
+    When I start the source
+
+    Then the "destination.csv" file should exist with the following content:
+      | id | name  | state    | name_state     | id_name |
+      | 1  | john  | active   | john-active    | 1-john  |
+      | 2  | ruby  | active   | ruby-active    | 2-ruby  |
+      | 3  | rails | inactive | rails-inactive | 3-rails |
+      | 4  | pete  | active   | pete-active    | 4-pete  |

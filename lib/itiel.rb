@@ -44,6 +44,7 @@ module Itiel
 
   module Transform
     autoload :CalculatedColumn      , 'itiel/transform/calculated_column'
+    autoload :CalculatedColumns     , 'itiel/transform/calculated_columns'
     autoload :ChainedStep           , 'itiel/transform/chained_step'
     autoload :ConstantColumn        , 'itiel/transform/constant_column'
     autoload :RenameColumn          , 'itiel/transform/rename_column'
