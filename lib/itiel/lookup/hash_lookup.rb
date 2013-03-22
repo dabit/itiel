@@ -13,7 +13,7 @@ module Itiel
       end
 
       def lookup_stream
-        lookup_source.inject({}) do |memory, row|
+        @lookup ||= lookup_source.inject({}) do |memory, row|
           clean_row = {}
           joined_columns.each do |original, target|
             clean_row[target.to_sym] = row[original.to_sym]
