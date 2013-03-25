@@ -75,4 +75,32 @@ describe Itiel::Lookup::HashLookup do
       assert_equal @lookup_stream, @lookup.lookup_stream
     end
   end
+
+  describe 'with nil values in the lookup column' do
+    before do
+      @input.append({ id: 3, author: nil })
+      @expected_output.append({ id: 3, author: nil })
+    end
+
+    describe "#lookup!" do
+      it 'joins the data setting the value to nil' do
+        stub(@lookup).lookup_stream { @lookup_stream }
+        assert_equal @expected_output, @lookup.lookup!(@input)
+      end
+    end
+  end
+
+  describe "When the lookup column doesn't exist in the input_stream" do
+    before do
+      @input.append({ id: 3 })
+      @expected_output.append({ id: 3, author: nil })
+    end
+
+    describe "#lookup!" do
+      it 'joins the data setting the value to nil' do
+        stub(@lookup).lookup_stream { @lookup_stream }
+        assert_equal @expected_output, @lookup.lookup!(@input)
+      end
+    end
+  end
 end
