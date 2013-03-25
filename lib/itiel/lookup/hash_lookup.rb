@@ -7,7 +7,7 @@ module Itiel
         output = []
         input_stream.each do |row|
           origin_column = lookup_columns.first[0].to_sym
-          merge_data    = lookup_stream[row[origin_column]]
+          merge_data    = lookup_stream[row[origin_column]] || { origin_column => nil }
           row.merge!(merge_data)
         end
       end
