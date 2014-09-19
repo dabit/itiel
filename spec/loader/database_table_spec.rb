@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Load::DatabaseTable do
   before(:each) do
@@ -16,13 +16,14 @@ describe Itiel::Load::DatabaseTable do
   end
 
   it "inserts a record for each row" do
-    table = mock
-    stub(@output).table { table }
+    table = double
+    allow(@output).to receive(:table).and_return table
 
-  	@input.each do |row|
-  		mock(table).insert row
-  	end
+    @input.each do |row|
+      expect(table).to receive(:insert).and_return row
+    end
 
     @output.persist(@input)
   end
 end
+

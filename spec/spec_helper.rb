@@ -17,6 +17,13 @@
 
 require 'itiel'
 
+TMP_DIR = File.expand_path("#{File.dirname(__FILE__)}/tmp")
+Dir.mkdir(TMP_DIR) unless File.exist?(TMP_DIR)
+
+log = Logger.new("#{File.dirname(__FILE__)}/tmp/test.log")
+log.level = Logger::INFO
+Itiel::Logger.logger = log
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

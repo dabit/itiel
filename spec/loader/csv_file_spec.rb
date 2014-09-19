@@ -1,8 +1,8 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Load::CSVFile do
   before :each do
-    @filename = File.expand_path("#{File.dirname(__FILE__)}/../../../tmp/output.csv")
+    @filename = File.expand_path("#{File.dirname(__FILE__)}/../tmp/output.csv")
     File.unlink(@filename) if File.exist?(@filename)
 
     @input = [
@@ -32,7 +32,7 @@ describe Itiel::Load::CSVFile do
     end
 
     it "generates a CSV file with the input data" do
-      assert_equal @expected_result, @result.to_a
+      expect(@expected_result).to eq @result.to_a
     end
   end
 
@@ -44,7 +44,7 @@ describe Itiel::Load::CSVFile do
     end
 
     it "appends to the existing data" do
-      assert_equal @expected_result - [[ "id", "name" ]], @result
+      expect(@expected_result - [[ "id", "name" ]]).to eq @result
     end
   end
 
@@ -61,8 +61,9 @@ describe Itiel::Load::CSVFile do
       end
 
       it "replaces the existing file with the input data" do
-        assert_equal @expected_result, @result
+        expect(@expected_result).to eq @result
       end
     end
   end
 end
+
