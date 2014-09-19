@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Transform::SelectColumn do
   before :each do
@@ -15,6 +15,7 @@ describe Itiel::Transform::SelectColumn do
         {"order_id" => 2, "name" => "second bucket" }
     ]
 
-    assert_equal expected_result, @transformer.transform!(@input)
+    expect(@transformer.transform!(@input)).to eq expected_result
   end
 end
+

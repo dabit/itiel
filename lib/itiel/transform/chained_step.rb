@@ -18,6 +18,10 @@ module Itiel
       def input=(stream)
         next_step.input = transform!(stream)
       end
+
+      def transform!(stream)
+      	raise "You need to define the transform! method in the implementing class"
+      end
     end
   end
 end

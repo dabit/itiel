@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Transform::MapValues do
   before :each do
@@ -20,6 +20,7 @@ describe Itiel::Transform::MapValues do
   end
 
   it "maps a column depending on it's value" do
-    assert_equal @output, @transformation.transform!(@input)
+    expect(@output).to eq @transformation.transform!(@input)
   end
 end
+

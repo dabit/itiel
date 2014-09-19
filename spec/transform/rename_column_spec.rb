@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Transform::RenameColumn do
   before :each do
@@ -19,6 +19,7 @@ describe Itiel::Transform::RenameColumn do
         { "id" => 2 , "client_name" => "second bucket" , "price" => 3   }
     ]
 
-    assert_equal expected_result, @transformer.transform!(@input)
+    expect(@transformer.transform!(@input)).to eq expected_result
   end
 end
+

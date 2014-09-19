@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Transform::CalculatedColumns do
   before(:each) do
@@ -8,7 +8,7 @@ describe Itiel::Transform::CalculatedColumns do
       { 'total' => total, 'tax' => tax }
     end
 
-    @transformer.next_step = mock
+    @transformer.next_step = double
 
     @input = [
         { "id" => 1 , "price" => 1.5 , "quantity" => 5 },
@@ -20,9 +20,7 @@ describe Itiel::Transform::CalculatedColumns do
   it "raises an exception when it's not defined" do
     @transformer.next_step = nil
 
-    assert_raises RuntimeError do
-      @transformer.transform!(@input)
-    end
+    expect { @transformer.transform!(@input) }.to raise_error
   end
 
   it "creates new columns and calculate to fill it" do
@@ -32,6 +30,7 @@ describe Itiel::Transform::CalculatedColumns do
         { "id" => 3 , "price" => 4.5 , "quantity" => 3 , "total" => 13.5, "tax" => 2.7 }
     ]
 
-    assert_equal expected_result, @transformer.transform!(@input)
+    expect(@transformer.transform!(@input)).to eq expected_result
   end
 end
+
