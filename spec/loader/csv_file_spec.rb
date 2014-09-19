@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Itiel::Load::CSVFile do
   before :each do
-    @filename = File.expand_path("#{File.dirname(__FILE__)}/../tmp/output.csv")
+    @filename = File.expand_path("#{File.dirname(__FILE__)}/../../tmp/output.csv")
     File.unlink(@filename) if File.exist?(@filename)
 
     @input = [

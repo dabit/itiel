@@ -17,10 +17,10 @@
 
 require 'itiel'
 
-TMP_DIR = File.expand_path("#{File.dirname(__FILE__)}/tmp")
+TMP_DIR = File.expand_path("#{File.dirname(__FILE__)}/../tmp")
 Dir.mkdir(TMP_DIR) unless File.exist?(TMP_DIR)
 
-log = Logger.new("#{File.dirname(__FILE__)}/tmp/test.log")
+log = Logger.new("#{File.dirname(__FILE__)}/../tmp/test.log")
 log.level = Logger::INFO
 Itiel::Logger.logger = log
 
