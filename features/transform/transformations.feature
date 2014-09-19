@@ -98,29 +98,6 @@ Feature: Transformations
       | 3  | inactive |
       | 4  | active   |
 
-  Scenario: Create a new column with the result of a calculation with other columns
-    # @calculated_column = Itiel::Transform::CalculatedColumn.new 'new_id' do |columns|
-    #   columns['id'].to_i * 3
-    # end
-    Given I create a Transformation::CalculatedColumn object that multiplies "id" times 3
-
-    # @source.next_step     = @calculated_column
-    # @calculated_column.next_step = @destination
-    And the data flows in the following direction:
-      | @source            |
-      | @calculated_column |
-      | @destination       |
-
-    # @source.start
-    When I start the source
-
-    Then the "destination.csv" file should exist with the following content:
-      | id | name  | state    | new_id |
-      | 1  | john  | active   | 3      |
-      | 2  | ruby  | active   | 6      |
-      | 3  | rails | inactive | 9      |
-      | 4  | pete  | active   | 12     |
-
   Scenario: Create multiple columns with the result of a calculation with other columns
 
     # @calculated_columns = Itiel::Transform::CalculatedColumns.new do |row|
