@@ -1,16 +1,12 @@
 require 'bundler'
 Bundler::GemHelper.install_tasks
 
-require 'rake/testtask'
+require 'rspec/core/rake_task'
 require 'cucumber/rake/task'
 
-task :default => [:test, :cucumber]
+task :default => [:spec, :cucumber]
 
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
-end
+RSpec::Core::RakeTask.new
 
 Cucumber::Rake::Task.new do |task|
   task.cucumber_opts = %w{--format progress}
