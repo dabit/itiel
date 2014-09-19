@@ -1,0 +1,9 @@
+legacy:
+  adapter: sqlite3
+  database: tmp/source.sqlite3
+  pool: 5
+
+destination:
+  adapter: sqlite3
+  database: tmp/destination.sqlite3
+  pool: 5

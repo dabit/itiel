@@ -1,3 +1,5 @@
+require 'sequel'
+
 module Itiel
   module DB
     module SQLConnectable

@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Extract::ChainedStep do
   before :each do
@@ -6,28 +6,26 @@ describe Itiel::Extract::ChainedStep do
     klass.send(:include, Itiel::Extract::ChainedStep)
     @step = klass.new
 
-    @stream = mock
+    @stream = double
   end
 
   describe "#start" do
     before :each do
-      @next_step = mock
+      @next_step = double
       @step.next_step = @next_step
     end
 
     it "extracts and sends the stream to the next step" do
-      mock(@step).extract.returns @stream
-      mock(@next_step).input=(@stream)
+      allow(@step).to receive(:extract).and_return(@stream)
+      allow(@next_step).to receive(:input=).and_return(@stream)
 
       @step.start
     end
   end
 
   describe "#extract" do
-  	it "raises an exception" do
-  		assert_raises RuntimeError do
-  			@step.extract
-  		end
-  	end
+    it "raises an exception" do
+      expect { @step.extract }.to raise_error
+    end
   end
 end
