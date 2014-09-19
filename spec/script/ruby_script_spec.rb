@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Script::RubyScript do
   before :each do
@@ -11,7 +11,8 @@ describe Itiel::Script::RubyScript do
     it "iterates through the input_stream and yields to given block" do
       stream = [ { "data" => "foo" } ]
       @step.execute(stream)
-      assert_equal [ { "data" => "bar" } ], stream
+      expect(stream).to eq [ { "data" => "bar" } ]
     end
   end
 end
+

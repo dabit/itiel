@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Lookup::HashLookup do
   before(:each) do
@@ -64,15 +64,15 @@ describe Itiel::Lookup::HashLookup do
 
   describe "#lookup!" do
     it "joins the data using the specified column" do
-      stub(@lookup).lookup_stream { @lookup_stream }
-      assert_equal @expected_output, @lookup.lookup!(@input)
+      allow(@lookup).to receive(:lookup_stream).and_return @lookup_stream
+      expect(@expected_output).to eq @lookup.lookup!(@input)
     end
   end
 
   describe "#lookup_stream" do
     it do
-      stub(@lookup).lookup_source { @lookup_source }
-      assert_equal @lookup_stream, @lookup.lookup_stream
+      allow(@lookup).to receive(:lookup_source).and_return @lookup_source
+      expect(@lookup_stream).to eq @lookup.lookup_stream
     end
   end
 
@@ -84,8 +84,8 @@ describe Itiel::Lookup::HashLookup do
 
     describe "#lookup!" do
       it 'joins the data setting the value to nil' do
-        stub(@lookup).lookup_stream { @lookup_stream }
-        assert_equal @expected_output, @lookup.lookup!(@input)
+        allow(@lookup).to receive(:lookup_stream).and_return @lookup_stream
+        expect(@expected_output).to eq @lookup.lookup!(@input)
       end
     end
   end
@@ -98,9 +98,11 @@ describe Itiel::Lookup::HashLookup do
 
     describe "#lookup!" do
       it 'joins the data setting the value to nil' do
-        stub(@lookup).lookup_stream { @lookup_stream }
-        assert_equal @expected_output, @lookup.lookup!(@input)
+        allow(@lookup).to receive(:lookup_stream).and_return @lookup_stream
+
+        expect(@expected_output).to eq @lookup.lookup!(@input)
       end
     end
   end
 end
+

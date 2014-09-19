@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Itiel::Script::SQLScript do
   before :each do
@@ -9,9 +9,7 @@ describe Itiel::Script::SQLScript do
   describe :sanity_check do
     describe "no connection specified" do
       it "raises RuntimeError" do
-        assert_raises RuntimeError do
-          @sql_script.sanity_check
-        end
+        expect { @sql_script.sanity_check }.to raise_error
       end
     end
 
@@ -21,9 +19,7 @@ describe Itiel::Script::SQLScript do
       end
 
       it "raises RuntimeError" do
-        assert_raises RuntimeError do
-          @sql_script.sanity_check
-        end
+        expect { @sql_script.sanity_check }.to raise_error
       end
     end
 
@@ -34,27 +30,30 @@ describe Itiel::Script::SQLScript do
       end
 
       it "raises RuntimeError" do
-        assert_raises RuntimeError do
-          @sql_script.sanity_check
-        end
+        expect { @sql_script.sanity_check }.to raise_error
       end
     end
   end
 
   describe :execute do
     before :each do
-      @connection = mock
-      stub(@sql_script).sanity_check
-      stub(@sql_script).connection.stub!.connection_string.stub!
-      stub(@sql_script).sql.stub!
+      @connection = double(connection_string: double)
+      allow(@sql_script).to receive(:sanity_check)
+      allow(@sql_script).to receive(:connection).and_return @connection
+      allow(@sql_script).to receive(:sql).and_return double
     end
 
     it "Executes the specified SQL script with the given connection" do
-      mock(@sql_script.class::Executor).establish_connection @sql_script.connection.connection_string
-      mock(@sql_script.class::Executor).connection.mock!.execute @sql_script.sql
-      mock(@sql_script.class::Executor).clear_all_connections!
+      expect(@sql_script.class::Executor).to receive(:establish_connection).
+          with @sql_script.connection.connection_string
+
+      expect(@connection).to receive(:execute).with(@sql_script.sql)
+      expect(@sql_script.class::Executor).to receive(:connection).
+          and_return @connection
+      expect(@sql_script.class::Executor).to receive :clear_all_connections!
 
       @sql_script.execute
     end
   end
 end
+
