@@ -8,4 +8,3 @@ rvm:
 gemfile:
   - Gemfile.rails.4.0
   - Gemfile.rails.4.1
-  - Gemfile.rails.4.2
