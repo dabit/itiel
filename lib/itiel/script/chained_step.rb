@@ -6,13 +6,8 @@ module Itiel
       alias :>> :next_step=
 
       def input=(input_stream)
-        sanity_check
         self.execute(input_stream)
-        next_step.input = input_stream
-      end
-
-      def sanity_check
-        raise "next_step is undefined" unless self.next_step
+        next_step.input = input_stream if next_step
       end
 
       def execute(*)
