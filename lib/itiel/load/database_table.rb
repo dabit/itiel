@@ -12,7 +12,7 @@ module Itiel
       include Itiel::Nameable
       include Itiel::DB::SQLConnectable
 
-      attr_accessor :table_name
+      attr_accessor :table_name, :debug
 
       def initialize(connection, table_name)
         self.connection = connection
@@ -20,14 +20,15 @@ module Itiel
       end
 
       def persist(input_stream)
+        puts input_stream if debug
         input_stream.each do |element|
           table.insert(element)
         end
       end
 
       def table
-        db = self.class.sequel_connection(connection)
-        db[table_name.to_sym]
+        @@db ||= self.class.sequel_connection(connection)
+        @@db[table_name.to_sym]
       end
     end
   end

@@ -16,6 +16,8 @@ module Itiel
         def input=(input_stream)
           Itiel::Logger.log_received(self, input_stream.size)
           self.output = lookup!(input_stream)
+          #puts output if table_name == "profiles"
+          #puts input_stream if table_name == "profiles"
           self.next_step.input = output if next_step
           Itiel::Logger.log_processed(self, input_stream.size)
         end

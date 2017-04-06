@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec', '~> 3.1.0'
+  s.add_development_dependency 'rspec', '~> 3.5.0'
   s.add_development_dependency 'rr'
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'sqlite3'

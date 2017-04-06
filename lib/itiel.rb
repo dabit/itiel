@@ -11,6 +11,7 @@ module Itiel
   module DB
     autoload :Connection            , 'itiel/db/connection'
     autoload :SQLConnectable        , 'itiel/db/sql_connectable.rb'
+    autoload :Truncator             , 'itiel/db/truncator.rb'
   end
 
   module Extract
@@ -48,6 +49,7 @@ module Itiel
     autoload :ChainedStep           , 'itiel/transform/chained_step'
     autoload :ConstantColumn        , 'itiel/transform/constant_column'
     autoload :RenameColumn          , 'itiel/transform/rename_column'
+    autoload :RemoveColumn          , 'itiel/transform/remove_column'
     autoload :SelectColumn          , 'itiel/transform/select_column'
     autoload :InputOutputBehavior   , 'itiel/transform/input_output_behavior'
     autoload :MapValues             , 'itiel/transform/map_values'

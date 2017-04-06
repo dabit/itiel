@@ -24,7 +24,7 @@ module Itiel
         all_keys = input_stream.first.keys
 
         transformed_output = []
-    	  input_stream.each do |object|
+        input_stream.each do |object|
           element = {}
           all_keys.each do |k|
             if old_keys.include?(k)
