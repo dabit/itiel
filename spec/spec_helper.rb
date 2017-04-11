@@ -1,3 +1,5 @@
+#Dir["lib/**/*.rb"].each {|file| p file; load file }
+
 require 'itiel'
 
 TMP_DIR = File.expand_path("#{File.dirname(__FILE__)}/../tmp")
