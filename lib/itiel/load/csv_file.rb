@@ -38,7 +38,7 @@ module Itiel
 
       private
       def skip_headers?
-        File.exists?(@file_name) && @append
+        File.exist?(@file_name) && @append
       end
     end
   end

@@ -4,8 +4,7 @@ module Itiel
       attr_accessor :lookup_columns, :joined_columns
 
       def lookup!(input_stream)
-        output = []
-        input_stream.each do |row|
+        input_stream.collect do |row|
           origin_column = lookup_columns.first[0].to_sym
           merge_data    = lookup_stream[row[origin_column]] || empty_joined_columns #{ origin_column => nil }
           row.merge!(merge_data)
