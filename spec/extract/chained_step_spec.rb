@@ -25,7 +25,7 @@ describe Itiel::Extract::ChainedStep do
 
   describe "#extract" do
     it "raises an exception" do
-      expect { @step.extract }.to raise_error
+      expect { @step.extract }.to raise_error Itiel::MethodNotImplementedException
     end
   end
 end

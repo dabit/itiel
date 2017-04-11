@@ -10,5 +10,5 @@ end
 Then /^the "([^"]*)" table should have (\d+) records$/ do |table_name, record_count|
   Itiel::Extract::CustomSQL.connection_file_path = @database_config_path
 
-  Itiel::Extract::CustomSQL.sequel_connection(:test)[table_name.to_sym].count.should == record_count.to_i
+  expect(Itiel::Extract::CustomSQL.sequel_connection(:test)[table_name.to_sym].count).to eq record_count.to_i
 end

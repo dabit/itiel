@@ -26,8 +26,8 @@ module Itiel
       end
 
       def table
-        db = self.class.sequel_connection(connection)
-        db[table_name.to_sym]
+        @@db ||= self.class.sequel_connection(connection)
+        @@db[table_name.to_sym]
       end
     end
   end

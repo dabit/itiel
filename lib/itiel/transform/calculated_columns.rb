@@ -40,7 +40,7 @@ module Itiel
       end
 
       def sanity_check
-        raise "Undefined next_step" unless self.next_step
+        raise Itiel::UndefinedNextStepException.new "Undefined next_step" unless self.next_step
       end
     end
   end

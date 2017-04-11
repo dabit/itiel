@@ -4,5 +4,5 @@ end
 
 Then /^the resulting output stream should be:$/ do |table|
   output = @ruby_script.execute(@stream)
-  output.should == table.hashes
+  expect(output).to eq table.hashes
 end

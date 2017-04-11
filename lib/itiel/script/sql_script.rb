@@ -1,5 +1,3 @@
-require 'active_record'
-
 module Itiel
   module Script
     #
@@ -8,6 +6,7 @@ module Itiel
     #
     class SQLScript
       include ChainedStep
+      include Itiel::DB::SQLConnectable
 
       attr_accessor :connection
       attr_accessor :sql
@@ -17,26 +16,14 @@ module Itiel
       end
 
       def execute(*)
-        sanity_check
-
-        Executor.establish_connection connection.connection_string
-        Executor.connection.execute(self.sql)
-        Executor.clear_all_connections!
+        db = self.class.sequel_connection(connection)
+        db << sql
       end
 
       def sanity_check
-        raise "No connection was specified to run the script" \
-            unless connection
-
-        raise "Connection is not Itiel::DB::DatabaseConnection" \
-            unless connection.is_a?(Itiel::DB::Connection)
-
-        raise "No SQL to execute given" \
-            unless self.sql
+        raise Itiel::MissingConnection unless self.connection
+        raise Itiel::SQLSentenceNotProvided.new unless self.sql
       end
-
-      class Executor < ActiveRecord::Base ; end
     end
-
   end
 end

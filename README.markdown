@@ -101,10 +101,3 @@ Creates a graphical representation of your ETL flow
 Not really, Ruby 1.9 is enough. I don't have plans to make it
 work on 1.8
 
-# About the Author
-
-[Crowd Interactive](http://www.crowdint.com) is a Ruby and Rails consultancy firm
-powered by a team of enthusiast engineers who love programming.
-We turn your ideas into web applications, and we like challenging projects. We also have
-a lot of experience in retail, so it doesn't matter if your idea is about
-something you'd like to sell, we can surely help you.

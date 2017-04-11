@@ -5,20 +5,15 @@ module Itiel
     #
     # Usage:
     #
-    #     @transformer = Itiel::Transform::SelectColumn.new("order_id", "name")
+    #     @transformer = Itiel::Transform::RemoveColumn.new("order_id")
     #
-    # In the example, the output stream would only have the order_id and the name column
-    # All other columns will be ignored
+    # In the example, the output stream would not have the order_id column
     #
-    class SelectColumn
+    class RemoveColumn
       include ChainedStep
       include Itiel::Nameable
 
       attr_accessor :mappings
-
-      def input=(stream)
-        next_step.input = transform!(stream)
-      end
 
       def initialize(*args)
         self.mappings = args
@@ -27,7 +22,7 @@ module Itiel
       def transform!(input_stream)
         selected_output = []
         input_stream.each do |object|
-          selected_output << object.select {|key, value| self.mappings.include? key }
+          selected_output << object.select {|key, value| !self.mappings.include? key }
         end
 
         selected_output
@@ -35,3 +30,4 @@ module Itiel
     end
   end
 end
+

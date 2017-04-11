@@ -8,18 +8,8 @@ describe Itiel::Script::SQLScript do
 
   describe :sanity_check do
     describe "no connection specified" do
-      it "raises RuntimeError" do
-        expect { @sql_script.sanity_check }.to raise_error
-      end
-    end
-
-    describe "connection is not Itiel::DB::Connection" do
-      before :each do
-        @sql_script.connection = Object.new
-      end
-
-      it "raises RuntimeError" do
-        expect { @sql_script.sanity_check }.to raise_error
+      it "raises Itiel::MissingConnection" do
+        expect { @sql_script.sanity_check }.to raise_error Itiel::MissingConnection
       end
     end
 
@@ -29,29 +19,21 @@ describe Itiel::Script::SQLScript do
         @sql_script.sql = nil
       end
 
-      it "raises RuntimeError" do
-        expect { @sql_script.sanity_check }.to raise_error
+      it "raises Itiel::SQLSentenceNotProvided" do
+        expect { @sql_script.sanity_check }.to raise_error Itiel::SQLSentenceNotProvided
       end
     end
   end
 
   describe :execute do
     before :each do
-      @connection = double(connection_string: double)
-      allow(@sql_script).to receive(:sanity_check)
-      allow(@sql_script).to receive(:connection).and_return @connection
-      allow(@sql_script).to receive(:sql).and_return double
+      @connection = double
+      @sql_script.connection = :test
+      allow(Itiel::Script::SQLScript).to receive(:sequel_connection).with(:test).and_return @connection
     end
 
     it "Executes the specified SQL script with the given connection" do
-      expect(@sql_script.class::Executor).to receive(:establish_connection).
-          with @sql_script.connection.connection_string
-
-      expect(@connection).to receive(:execute).with(@sql_script.sql)
-      expect(@sql_script.class::Executor).to receive(:connection).
-          and_return @connection
-      expect(@sql_script.class::Executor).to receive :clear_all_connections!
-
+      expect(@connection).to receive(:<<).with(@sql_script.sql)
       @sql_script.execute
     end
   end
