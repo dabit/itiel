@@ -30,7 +30,7 @@ describe Itiel::Transform::ChainedStep do
   end
 
   it "raises an error if transform! is not defined" do
-    expect { @step.transform!(double) }.to raise_error
+    expect { @step.transform!(double) }.to raise_error Itiel::MethodNotImplementedException
   end
 end
 

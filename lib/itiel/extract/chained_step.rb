@@ -15,7 +15,7 @@ module Itiel
       end
 
       def extract
-        raise "extract is not implemented"
+        raise Itiel::MethodNotImplementedException.new "extract is not implemented"
       end
     end
   end

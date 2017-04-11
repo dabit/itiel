@@ -20,7 +20,7 @@ describe Itiel::Transform::CalculatedColumns do
   it "raises an exception when it's not defined" do
     @transformer.next_step = nil
 
-    expect { @transformer.transform!(@input) }.to raise_error
+    expect { @transformer.transform!(@input) }.to raise_error Itiel::UndefinedNextStepException
   end
 
   it "creates new columns and calculate to fill it" do

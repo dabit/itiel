@@ -9,17 +9,7 @@ describe Itiel::Script::SQLScript do
   describe :sanity_check do
     describe "no connection specified" do
       it "raises RuntimeError" do
-        expect { @sql_script.sanity_check }.to raise_error
-      end
-    end
-
-    describe "connection is not Itiel::DB::Connection" do
-      before :each do
-        @sql_script.connection = Object.new
-      end
-
-      it "raises RuntimeError" do
-        expect { @sql_script.sanity_check }.to raise_error
+        expect { @sql_script.sanity_check }.to raise_error Itiel::MissingConnection
       end
     end
 
@@ -30,7 +20,7 @@ describe Itiel::Script::SQLScript do
       end
 
       it "raises RuntimeError" do
-        expect { @sql_script.sanity_check }.to raise_error
+        expect { @sql_script.sanity_check }.to raise_error Itiel::SQLSentenceNotProvided
       end
     end
   end

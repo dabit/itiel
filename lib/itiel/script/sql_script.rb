@@ -19,6 +19,11 @@ module Itiel
         db = self.class.sequel_connection(connection)
         db << sql
       end
+
+      def sanity_check
+        raise Itiel::MissingConnection unless self.connection
+        raise Itiel::SQLSentenceNotProvided.new unless self.sql
+      end
     end
   end
 end

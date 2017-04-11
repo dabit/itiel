@@ -25,7 +25,7 @@ module Itiel
         # This method must be implemented in the class
         #
         def persist(input_stream)
-          raise "persist is not implemented"
+          raise Itiel::MethodNotImplementedException.new "persist is not implemented"
         end
       end
 

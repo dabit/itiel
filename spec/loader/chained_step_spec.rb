@@ -15,7 +15,7 @@ describe Itiel::Load::ChainedStep do
 
   describe :persist do
     it "raises an error if undefined" do
-      expect { @step.persist([]) }.to raise_error
+      expect { @step.persist([]) }.to raise_error Itiel::MethodNotImplementedException
     end
   end
 

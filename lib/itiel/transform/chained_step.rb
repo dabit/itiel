@@ -20,7 +20,7 @@ module Itiel
       end
 
       def transform!(stream)
-      	raise "You need to define the transform! method in the implementing class"
+        raise Itiel::MethodNotImplementedException.new "You need to define the transform! method in the implementing class"
       end
     end
   end

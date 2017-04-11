@@ -54,4 +54,9 @@ module Itiel
     autoload :InputOutputBehavior   , 'itiel/transform/input_output_behavior'
     autoload :MapValues             , 'itiel/transform/map_values'
   end
+
+  class MethodNotImplementedException < Exception; end
+  class MissingConnection < Exception ; end
+  class UndefinedNextStepException < Exception ; end
+  class SQLSentenceNotProvided < Exception ; end
 end
