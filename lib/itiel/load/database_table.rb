@@ -12,7 +12,7 @@ module Itiel
       include Itiel::Nameable
       include Itiel::DB::SQLConnectable
 
-      attr_accessor :table_name, :debug
+      attr_accessor :table_name
 
       def initialize(connection, table_name)
         self.connection = connection
@@ -20,7 +20,6 @@ module Itiel
       end
 
       def persist(input_stream)
-        puts input_stream if debug
         input_stream.each do |element|
           table.insert(element)
         end
