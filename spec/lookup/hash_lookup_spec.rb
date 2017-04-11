@@ -79,7 +79,7 @@ describe Itiel::Lookup::HashLookup do
   describe 'with nil values in the lookup column' do
     before do
       @input.append({ id: 3, author: nil })
-      @expected_output.append({ id: 3, author: nil })
+      @expected_output.append({ id: 3, author: nil, author_id: nil, active: nil })
     end
 
     describe "#lookup!" do
@@ -93,7 +93,7 @@ describe Itiel::Lookup::HashLookup do
   describe "When the lookup column doesn't exist in the input_stream" do
     before do
       @input.append({ id: 3 })
-      @expected_output.append({ id: 3, author: nil })
+      @expected_output.append({ id: 3, author_id: nil, active: nil })
     end
 
     describe "#lookup!" do

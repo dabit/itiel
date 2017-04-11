@@ -11,5 +11,5 @@ Then /^the "([^"]*)" file should exist with the following content:$/ do |filenam
 
   resulting_file = File.new(File.join('tmp', filename), "rb").read
 
-  resulting_file.should == expected_file
+  expect(resulting_file).to eq expected_file
 end

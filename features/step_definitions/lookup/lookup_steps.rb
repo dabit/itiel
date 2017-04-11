@@ -20,7 +20,7 @@ Then(/^the output for the lookup should be:$/) do |table|
   result = @lookup.output
   table.hashes.each_with_index do |row, index|
     table.headers.each do |column|
-      result[index][column.to_sym].to_s.should eq row[column]
+      expect(result[index][column.to_sym].to_s).to eq row[column]
     end
   end
 end
