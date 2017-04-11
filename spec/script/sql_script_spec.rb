@@ -30,8 +30,6 @@ describe Itiel::Script::SQLScript do
       @connection = double
       @sql_script.connection = :test
       allow(Itiel::Script::SQLScript).to receive(:sequel_connection).with(:test).and_return @connection
-      #allow(@sql_script).to receive(:sanity_check)
-      #allow(@sql_script).to receive(:sql).and_return double
     end
 
     it "Executes the specified SQL script with the given connection" do
