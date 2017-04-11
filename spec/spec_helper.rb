@@ -17,5 +17,5 @@ RSpec.configure do |config|
   end
 
   config.order = :random
-  #config.warnings = true
+  # config.warnings = true
 end
